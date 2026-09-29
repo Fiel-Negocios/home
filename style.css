@@ -81,46 +81,32 @@ header {
     width: 12rem;
     margin-right: auto;
   }
-
-  & nav {
-    display: flex;
-    gap: 1.75rem;
-    font-weight: 500;
-
-    & a:hover {
-      color: var(--gold);
-    }
-  }
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
   align-items: center;
-  column-gap: 2rem;
-  padding-block: var(--gap);
+  gap: 1.25rem;
+  padding-block: 1rem 2rem;
 
   /* símbolo da marca ao lado do título */
   & .hero_mark {
-    grid-column: 2;
-    grid-row: 1;
-    width: clamp(10rem, 24vw, 20rem);
+    flex-shrink: 0;
+    width: clamp(3.5rem, 7vw, 5rem);
   }
 
   & h1 {
-    max-width: 16ch;
-    font-size: clamp(2.25rem, 6vw, 4.5rem);
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
     font-weight: 800;
-    line-height: 1.05;
+    line-height: 1.15;
     letter-spacing: -0.02em;
     text-wrap: balance;
   }
 
   & p {
-    max-width: 38rem;
-    margin-top: 1.5rem;
-    font-size: 1.2rem;
-    line-height: 1.6;
+    margin-top: 0.4rem;
+    font-size: 1rem;
+    line-height: 1.5;
     color: #3d5568;
   }
 }
@@ -149,7 +135,7 @@ header {
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    padding-block: 2rem;
+    padding-block: 1.25rem;
   }
 
   & .service_text {
@@ -159,7 +145,7 @@ header {
   }
 
   & strong {
-    font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+    font-size: clamp(1.4rem, 3.5vw, 2.25rem);
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.015em;
@@ -181,8 +167,8 @@ header {
 
   & img {
     flex-shrink: 0;
-    width: 16rem;
-    height: 16rem;
+    width: 8rem;
+    aspect-ratio: 1;
     object-fit: cover;
     border-radius: var(--radius);
   }
@@ -279,14 +265,6 @@ a.whatsapp_float {
     display: none;
   }
 
-  .hero .hero_mark {
-    width: 4.5rem;
-  }
-
-  .hero p {
-    grid-column: 1 / -1;
-  }
-
   header {
     justify-content: center;
 
@@ -299,12 +277,15 @@ a.whatsapp_float {
   .services {
     & li > a {
       gap: 1rem;
-      padding-block: 1.5rem;
+      padding-block: 1rem;
+    }
+
+    & .service_text > span {
+      font-size: 0.95rem;
     }
 
     & img {
-      width: 8rem;
-      height: 8rem;
+      width: 5.5rem;
     }
   }
 
