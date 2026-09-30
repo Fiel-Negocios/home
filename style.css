@@ -1,4 +1,46 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400..800&display=swap");
+/* reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100svh;
+}
+
+body {
+  line-height: 1.5;
+  interpolate-size: allow-keywords;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (hover: hover) {
+  body {
+    scrollbar-gutter: stable;
+  }
+}
 
 :root {
   --navy: #144365;
@@ -165,12 +207,25 @@ header {
     color: var(--gold);
   }
 
-  & img {
+  & .service_img {
     flex-shrink: 0;
     width: 8rem;
+    background: center / cover no-repeat;
     aspect-ratio: 1;
     object-fit: cover;
     border-radius: var(--radius);
+  }
+
+  & .venda_imoveis {
+    background-image: url("public/venda_imoveis.webp");
+  }
+
+  & .consultoria_bnb {
+    background-image: url("public/consultoria_bnb.webp");
+  }
+
+  & .avaliacao_imoveis {
+    background-image: url("public/avaliacao_imoveis.webp");
   }
 
   & li > a:hover strong {
@@ -284,8 +339,20 @@ a.whatsapp_float {
       font-size: 0.95rem;
     }
 
-    & img {
+    & .service_img {
       width: 5.5rem;
+    }
+
+    & .venda_imoveis {
+      background-image: url("public/venda_imoveis_sm.webp");
+    }
+
+    & .consultoria_bnb {
+      background-image: url("public/consultoria_bnb_sm.webp");
+    }
+
+    & .avaliacao_imoveis {
+      background-image: url("public/avaliacao_imoveis_sm.webp");
     }
   }
 

@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--CSS-->
-    <link rel="stylesheet" href="reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..800&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..800&display=swap" /></noscript>
     <link rel="stylesheet" href="style.css" />
 
     <title>Home | Fiel Imóveis e Investimentos</title>
@@ -16,7 +19,7 @@
     <header class="wrap">
       <img
         id="logo_header"
-        src="public/fiel_logo_header.png"
+        src="public/fiel_logo_header.webp"
         alt="Fiel Imóveis e Investimentos"
       />
       <a
@@ -31,7 +34,7 @@
 
     <main>
       <section class="hero wrap">
-        <img class="hero_mark" src="public/fiel_simbolo.png" alt="" />
+        <img class="hero_mark" src="public/fiel_simbolo.webp" alt="" />
         <div>
           <h1>Sua parceria confiável no mercado de imóveis.</h1>
           <p>
@@ -50,7 +53,7 @@
                 <span>Imóveis comerciais e corporativos à venda.</span>
                 <em>Ver imóveis</em>
               </span>
-              <img src="public/venda_imoveis.jpg" alt="" />
+              <span class="service_img venda_imoveis"></span>
             </a>
           </li>
           <li>
@@ -62,7 +65,7 @@
                 >
                 <em>Falar sobre crédito BNB</em>
               </span>
-              <img src="public/consultoria_bnb.jpg" alt="" />
+              <span class="service_img consultoria_bnb"></span>
             </a>
           </li>
           <li>
@@ -72,7 +75,7 @@
                 <span>Saiba o valor de mercado do seu imóvel.</span>
                 <em>Pedir avaliação</em>
               </span>
-              <img src="public/avaliacao_imoveis.jpeg" alt="" />
+              <span class="service_img avaliacao_imoveis"></span>
             </a>
           </li>
         </ul>
@@ -100,8 +103,8 @@
         </a>
       </div>
       <div class="legal wrap">
-        <img
-          src="public/fiel_logo_header.png"
+        <img loading="lazy"
+          src="public/fiel_logo_header.webp"
           alt="Fiel Imóveis e Investimentos"
         />
         <p>
