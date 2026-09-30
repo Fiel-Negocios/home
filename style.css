@@ -302,3 +302,259 @@ a.whatsapp_float {
     }
   }
 }
+
+/* ---------- componentes das páginas de serviço ---------- */
+
+header nav {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  & a:hover {
+    color: var(--gold);
+  }
+}
+
+/* imagem ainda não definida */
+.placeholder {
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius);
+  background: repeating-linear-gradient(-45deg, #dfe6ec 0 12px, #e7edf1 12px 24px);
+  color: #6b8193;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.page_hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 3rem;
+  padding-block: 1rem var(--gap);
+
+  & h1 {
+    font-size: clamp(1.75rem, 4.5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  & p {
+    margin-block: 1rem 1.75rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #3d5568;
+  }
+
+  & .placeholder {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.section {
+  padding-block: var(--gap);
+  border-top: 1px solid var(--line);
+
+  & > h2 {
+    max-width: 40rem;
+    font-size: clamp(1.4rem, 3.5vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  & > p {
+    max-width: 44rem;
+    margin-top: 0.75rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #3d5568;
+  }
+
+  & > .button {
+    margin-top: 2rem;
+  }
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+/* lista com marcador dourado */
+.checklist {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+
+  & li {
+    position: relative;
+    padding-left: 1.75rem;
+    font-size: 1.05rem;
+    line-height: 1.5;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.45em;
+      width: 0.7rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+  }
+}
+
+/* cartões em grade */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+
+  & li {
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: #fff;
+  }
+
+  & strong {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  & p {
+    margin-top: 0.5rem;
+    line-height: 1.55;
+    color: #3d5568;
+  }
+}
+
+.team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+
+  & .placeholder {
+    aspect-ratio: 1;
+    margin-bottom: 1rem;
+  }
+
+  & strong {
+    font-size: 1.2rem;
+    font-weight: 800;
+  }
+
+  & span {
+    display: block;
+    margin-top: 0.25rem;
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  & p {
+    margin-top: 0.75rem;
+    line-height: 1.55;
+    color: #3d5568;
+  }
+}
+
+.faq {
+  margin-top: 2rem;
+
+  & details {
+    border-top: 1px solid var(--line);
+
+    &:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+  }
+
+  & summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1.25rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: "+";
+      color: var(--gold);
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: rotate 0.2s;
+    }
+  }
+
+  & details[open] summary::after {
+    rotate: 45deg;
+  }
+
+  & details > :not(summary) {
+    max-width: 48rem;
+    padding-bottom: 1.25rem;
+    line-height: 1.6;
+    color: #3d5568;
+  }
+}
+
+/* faixa de destaque em azul */
+.callout {
+  margin-block: var(--gap);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  background: var(--navy);
+  color: #fff;
+
+  & p {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 800;
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+
+  & .button {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  header nav {
+    display: none;
+  }
+
+  .page_hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .callout {
+    padding: 1.75rem;
+  }
+}
+
+#logo_header img {
+  width: 100%;
+}
