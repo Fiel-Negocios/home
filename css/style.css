@@ -217,15 +217,15 @@ header {
   }
 
   & .venda_imoveis {
-    background-image: url("public/venda_imoveis.webp");
+    background-image: url("../img/venda_imoveis.webp");
   }
 
   & .consultoria_bnb {
-    background-image: url("public/consultoria_bnb.webp");
+    background-image: url("../img/consultoria_bnb.webp");
   }
 
   & .avaliacao_imoveis {
-    background-image: url("public/avaliacao_imoveis.webp");
+    background-image: url("../img/avaliacao_imoveis.webp");
   }
 
   & li > a:hover strong {
@@ -344,15 +344,15 @@ a.whatsapp_float {
     }
 
     & .venda_imoveis {
-      background-image: url("public/venda_imoveis_sm.webp");
+      background-image: url("../img/venda_imoveis_sm.webp");
     }
 
     & .consultoria_bnb {
-      background-image: url("public/consultoria_bnb_sm.webp");
+      background-image: url("../img/consultoria_bnb_sm.webp");
     }
 
     & .avaliacao_imoveis {
-      background-image: url("public/avaliacao_imoveis_sm.webp");
+      background-image: url("../img/avaliacao_imoveis_sm.webp");
     }
   }
 
