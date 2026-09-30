@@ -4,12 +4,22 @@
   font-weight: 700;
 }
 
+#analise {
+  text-align: center;
+
+  & > h2,
+  & > p {
+    margin-inline: auto;
+  }
+}
+
 .lead_form {
+  text-align: left;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem 1.5rem;
   max-width: 48rem;
-  margin-top: 2rem;
+  margin: 2rem auto 0;
 
   & label {
     display: flex;
@@ -52,7 +62,8 @@
   }
 
   & button {
-    justify-self: start;
+    grid-column: 1 / -1;
+    justify-self: center;
     border: 0;
     font: inherit;
     font-weight: 600;
@@ -64,4 +75,8 @@
   .lead_form {
     grid-template-columns: 1fr;
   }
+}
+
+.callout {
+  text-align: center;
 }
