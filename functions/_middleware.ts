@@ -1,4 +1,4 @@
-import { ROOT_DOMAIN, servedSites, sites, siteUrl } from "../lib/sites";
+import { ROOT_DOMAIN, siteForHost, sites } from "../lib/sites";
 
 type Context = {
   request: Request;
@@ -21,9 +21,7 @@ export async function onRequest({ request, next, env }: Context) {
     return Response.redirect(url, 301);
   }
 
-  const site = servedSites.find(
-    (site) => new URL(siteUrl(site)).hostname === url.hostname,
-  );
+  const site = siteForHost(url.hostname);
   const route = site && sites[site].route;
   // a home já é a raiz: não precisa de reescrita
   if (route && route !== "/" && url.pathname === "/") {

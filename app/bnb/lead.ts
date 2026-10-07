@@ -1,4 +1,4 @@
-import { whatsappLink } from "@/lib/contact";
+import { leadMessage, whatsappLink } from "@/lib/contact";
 
 /**
  * Lead do BNB: o formulário da página vira uma mensagem de WhatsApp com os
@@ -64,12 +64,12 @@ export const bnbLeadFields: readonly BnbLeadField[] = [
 
 /** Link do WhatsApp com a mensagem do lead; campo ausente vira texto vazio. */
 export function bnbLeadLink(form: FormData) {
-  const lines = bnbLeadFields.map(
-    ({ name, message }) => `${message}: ${String(form.get(name) ?? "")}`,
-  );
   return whatsappLink(
-    ["Vim do site, quero uma análise para o Financiamento BNB.", ...lines].join(
-      "\n",
+    leadMessage(
+      bnbLeadFields.map(({ name, message }) => [
+        message,
+        String(form.get(name) ?? ""),
+      ]),
     ),
   );
 }

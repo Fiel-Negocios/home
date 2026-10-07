@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Callout } from "@/components/callout";
 import { Cards } from "@/components/cards";
 import { Checklist } from "@/components/checklist";
@@ -8,6 +9,7 @@ import { ServicePage } from "@/components/service-page";
 import { Team } from "@/components/team";
 import { WhatsAppButton } from "@/components/whatsapp";
 import { pageMetadata } from "@/lib/sites";
+import avaliacaoHero from "@/public/img/avaliacao.webp";
 
 export const metadata = pageMetadata("avaliacao");
 
@@ -42,9 +44,9 @@ export default function Avaliacao() {
     <ServicePage
       service="avaliacao"
       image={
-        <img
+        <Image
           className="aspect-square w-[clamp(7rem,16vw,11rem)] rounded-(--radius) object-cover"
-          src="/img/avaliacao.webp"
+          src={avaliacaoHero}
           alt=""
         />
       }

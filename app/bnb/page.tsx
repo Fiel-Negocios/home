@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Button } from "@/components/button";
 import { Callout } from "@/components/callout";
 import { Cards } from "@/components/cards";
@@ -9,6 +10,7 @@ import { Team } from "@/components/team";
 import { WhatsAppButton } from "@/components/whatsapp";
 import { yearsActive } from "@/lib/company";
 import { pageMetadata } from "@/lib/sites";
+import bnbLogo from "@/public/svg/bnb.svg";
 import { LeadForm } from "./lead-form";
 
 export const metadata = pageMetadata("bnb");
@@ -18,9 +20,9 @@ export default function Bnb() {
     <ServicePage
       service="bnb"
       image={
-        <img
+        <Image
           className="h-auto w-[clamp(4.5rem,10vw,7rem)]"
-          src="/svg/bnb.svg"
+          src={bnbLogo}
           alt=""
         />
       }

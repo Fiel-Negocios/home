@@ -75,6 +75,13 @@ export function siteUrl(site: Site) {
   return `https://${sites[site].subdomain}.${ROOT_DOMAIN}/`;
 }
 
+/** Site servido pelo host; `undefined` para hosts de fora do domínio. */
+export function siteForHost(hostname: string): Site | undefined {
+  return servedSites.find(
+    (site) => new URL(siteUrl(site)).hostname === hostname,
+  );
+}
+
 /** Título e endereço canônico da página de um site servido por este projeto. */
 export function pageMetadata(site: Site): Metadata {
   return {
