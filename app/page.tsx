@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
-import { BRAND } from "@/lib/brand";
+import { BRAND } from "@/lib/company";
 import { services, sites, siteUrl } from "@/lib/sites";
 import avaliacaoImoveis from "@/public/img/avaliacao_imoveis.webp";
 import consultoriaBnb from "@/public/img/consultoria_bnb.webp";

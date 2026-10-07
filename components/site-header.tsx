@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { BRAND } from "@/lib/brand";
+import { BRAND } from "@/lib/company";
 
 const logoClass = "w-[min(55vw,14rem)] sm:mr-auto sm:w-48";
 

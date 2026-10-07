@@ -1,5 +1,4 @@
-import { BRAND } from "@/lib/brand";
-import { EMAIL, HOURS, PHONE } from "@/lib/contact";
+import { BRAND, EMAIL, HOURS, PHONE } from "@/lib/company";
 import { type Site, services, sites, siteUrl } from "@/lib/sites";
 
 export const dynamic = "force-static";

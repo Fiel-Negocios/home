@@ -1,8 +1,4 @@
-import {
-  type Specialist,
-  type SpecialistId,
-  specialists,
-} from "@/lib/specialists";
+import { type Specialist, type SpecialistId, specialists } from "@/lib/company";
 
 export function Team({ members }: { members: SpecialistId[] }) {
   return (

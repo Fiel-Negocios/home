@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
-import { BRAND } from "@/lib/brand";
+import { BRAND } from "@/lib/company";
 import "./globals.css";
 
 const montserrat = Montserrat({

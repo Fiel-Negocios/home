@@ -1,5 +1,4 @@
-import { BRAND } from "@/lib/brand";
-import { EMAIL, HOURS } from "@/lib/contact";
+import { BRAND, EMAIL, HOURS } from "@/lib/company";
 import { TextLink } from "./text-link";
 import { WhatsAppButton } from "./whatsapp-button";
 

@@ -1,3 +1,31 @@
+/** Fatos da empresa: nome, tempo de atuação, atendimento e especialistas. */
+
+export const BRAND = "Fiel Imóveis e Investimentos";
+
+/** Ano de fundação; todo "X anos de atuação" dos textos deriva daqui. */
+export const FOUNDED = 2005;
+
+export function yearsActive(today = new Date()) {
+  return today.getFullYear() - FOUNDED;
+}
+
+export const HOURS = "das 09h às 18h";
+
+export const EMAIL = "faleconoscofiel@gmail.com";
+
+/** Número do WhatsApp no formato internacional, só dígitos. */
+export const WHATSAPP_NUMBER = "5588999940004";
+
+/** O mesmo número, para exibição. */
+export const PHONE = formatPhone(WHATSAPP_NUMBER);
+
+function formatPhone(digits: string) {
+  const parts = digits.match(/^(\d{2})(\d{2})(\d{5})(\d{4})$/);
+  if (!parts) throw new Error(`Número de WhatsApp inesperado: ${digits}`);
+  const [, country, area, prefix, line] = parts;
+  return `+${country} ${area} ${prefix}-${line}`;
+}
+
 export type Specialist = { name: string; roles: string[]; bio?: string };
 
 export const specialists = {
