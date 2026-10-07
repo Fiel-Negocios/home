@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
-import { BRAND } from "@/lib/company";
+import { BRAND, yearsActive } from "@/lib/company";
 import { services, sites, siteUrl } from "@/lib/sites";
 import avaliacaoImoveis from "@/public/img/avaliacao_imoveis.webp";
 import consultoriaBnb from "@/public/img/consultoria_bnb.webp";
@@ -35,7 +35,8 @@ export default function Home() {
               Sua parceria confiável no mercado de imóveis.
             </h1>
             <p className="mt-[0.4rem] text-base text-muted">
-              Há mais de 21 anos atuando com imóveis comerciais e corporativos.
+              Há mais de {yearsActive()} anos atuando com imóveis comerciais e
+              corporativos.
             </p>
           </div>
         </section>

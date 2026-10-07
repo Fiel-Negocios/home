@@ -8,6 +8,7 @@ import { Section } from "@/components/section";
 import { ServicePage } from "@/components/service-page";
 import { Team } from "@/components/team";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { yearsActive } from "@/lib/company";
 import { sites, siteUrl } from "@/lib/sites";
 import { LeadForm } from "./lead-form";
 
@@ -65,7 +66,7 @@ export default function Bnb() {
             "Clareza para seguir cada etapa com segurança e previsibilidade.",
             "Fortaleça sua proposta entregando exatamente o que o banco exige.",
             "Entenda quais linhas de crédito são mais adequadas ao seu negócio.",
-            "21 anos de experiência em análise e projetos, com histórico sólido de resultados.",
+            `${yearsActive()} anos de experiência em análise e projetos, com histórico sólido de resultados.`,
           ]}
         />
       </Section>
@@ -131,7 +132,7 @@ export default function Bnb() {
             },
             {
               q: "A consultoria garante a aprovação do financiamento?",
-              a: "Não existe garantia formal de aprovação, pois ela depende da análise do BNB, mas nossos 18 anos de experiência e alta taxa de aprovação mostram a eficácia do nosso trabalho.",
+              a: `Não existe garantia formal de aprovação, pois ela depende da análise do BNB, mas nossos ${yearsActive()} anos de experiência e alta taxa de aprovação mostram a eficácia do nosso trabalho.`,
             },
             {
               q: "A consultoria tem custo?",

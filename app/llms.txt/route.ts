@@ -1,4 +1,4 @@
-import { BRAND, EMAIL, HOURS, PHONE } from "@/lib/company";
+import { BRAND, EMAIL, HOURS, PHONE, yearsActive } from "@/lib/company";
 import { type Site, services, sites, siteUrl } from "@/lib/sites";
 
 export const dynamic = "force-static";
@@ -11,7 +11,7 @@ export function GET() {
   return new Response(
     `# ${BRAND}
 
-> Empresa com mais de 21 anos de atuação no mercado de imóveis comerciais e corporativos no Nordeste. Oferece venda de imóveis, consultoria para financiamento no Banco do Nordeste (BNB) e laudos técnicos de avaliação de imóveis conforme a ABNT NBR 14.653.
+> Empresa com mais de ${yearsActive()} anos de atuação no mercado de imóveis comerciais e corporativos no Nordeste. Oferece venda de imóveis, consultoria para financiamento no Banco do Nordeste (BNB) e laudos técnicos de avaliação de imóveis conforme a ABNT NBR 14.653.
 
 Atendimento ${HOURS} pelo WhatsApp (${PHONE}) ou pelo email ${EMAIL}.
 
