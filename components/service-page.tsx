@@ -1,51 +1,54 @@
-import type { ReactNode } from "react";
+import { Children, Fragment, isValidElement, type ReactNode } from "react";
 import { type Service, sites, siteUrl } from "@/lib/sites";
-import { anchors } from "./anchors";
 import { PageHero } from "./page-hero";
+import { type Anchor, anchors, Section, type SectionProps } from "./section";
 import { SiteHeader } from "./site-header";
 import { WhatsAppButton } from "./whatsapp";
 
 /**
  * Esqueleto das páginas de serviço: cabeçalho com o menu das seções, hero e
- * conteúdo. O menu lista todas as `anchors`, então a página precisa de uma
- * `Section` para cada uma (o teste das páginas confere).
+ * conteúdo. O menu lista as `Section`s com `anchor` que a página trouxer, na
+ * ordem em que aparecem.
  */
 export function ServicePage({
-  site,
+  service,
   image,
   title,
   text,
   action,
   children,
 }: {
-  site: Service;
+  service: Service;
   image: ReactNode;
   title: ReactNode;
   text: ReactNode;
   action?: ReactNode;
   children: ReactNode;
 }) {
+  const menu = anchoredSections(children);
   return (
     <>
       <SiteHeader logoHref={siteUrl("home")}>
-        <nav
-          aria-label="Seções da página"
-          className="hidden gap-6 text-[0.9rem] font-semibold md:flex [&_a:hover]:text-gold"
-        >
-          {Object.entries(anchors).map(([id, label]) => (
-            <a key={id} href={`#${id}`}>
-              {label}
-            </a>
-          ))}
-        </nav>
-        <WhatsAppButton service={site} className="hidden sm:inline-block">
+        {menu.length > 0 && (
+          <nav
+            aria-label="Seções da página"
+            className="hidden gap-6 text-[0.9rem] font-semibold md:flex [&_a:hover]:text-gold"
+          >
+            {menu.map((id) => (
+              <a key={id} href={`#${id}`}>
+                {anchors[id]}
+              </a>
+            ))}
+          </nav>
+        )}
+        <WhatsAppButton service={service} className="hidden sm:inline-block">
           Fale conosco
         </WhatsAppButton>
       </SiteHeader>
       <main className="flex-1">
         <PageHero
           image={image}
-          eyebrow={sites[site].title}
+          eyebrow={sites[service].title}
           title={title}
           text={text}
         >
@@ -55,4 +58,14 @@ export function ServicePage({
       </main>
     </>
   );
+}
+
+function anchoredSections(children: ReactNode): Anchor[] {
+  return Children.toArray(children).flatMap((child) => {
+    if (!isValidElement<SectionProps>(child)) return [];
+    if (child.type === Fragment) return anchoredSections(child.props.children);
+    return child.type === Section && child.props.anchor
+      ? [child.props.anchor]
+      : [];
+  });
 }

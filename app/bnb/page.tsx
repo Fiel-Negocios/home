@@ -16,7 +16,7 @@ export const metadata = pageMetadata("bnb");
 export default function Bnb() {
   return (
     <ServicePage
-      site="bnb"
+      service="bnb"
       image={
         <img
           className="h-auto w-[clamp(4.5rem,10vw,7rem)]"

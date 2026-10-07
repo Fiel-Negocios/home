@@ -40,7 +40,7 @@ const steps = [
 export default function Avaliacao() {
   return (
     <ServicePage
-      site="avaliacao"
+      service="avaliacao"
       image={
         <img
           className="aspect-square w-[clamp(7rem,16vw,11rem)] rounded-(--radius) object-cover"

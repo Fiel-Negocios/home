@@ -1,10 +1,18 @@
 import type { ComponentProps, ReactNode } from "react";
-import { type Anchor, anchors } from "./anchors";
 import { Eyebrow } from "./eyebrow";
 import { Intro } from "./intro";
 import { SectionTitle } from "./section-title";
 
-type SectionProps = Omit<ComponentProps<"section">, "id" | "title"> & {
+/** Seções que o menu das páginas de serviço pode listar, com seus rótulos. */
+export const anchors = {
+  o_que_e: "O que é?",
+  beneficios: "Benefícios",
+  duvidas: "Dúvidas",
+} as const;
+
+export type Anchor = keyof typeof anchors;
+
+export type SectionProps = Omit<ComponentProps<"section">, "id" | "title"> & {
   /** Liga a seção ao menu do cabeçalho; o rótulo vira o eyebrow. */
   anchor?: Anchor;
   id?: string;
