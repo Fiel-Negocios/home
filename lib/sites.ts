@@ -1,3 +1,6 @@
+import type { Metadata } from "next";
+import { BRAND } from "./company";
+
 export const ROOT_DOMAIN = "fielnegocios.com.br";
 
 type SiteInfo = {
@@ -11,6 +14,8 @@ type SiteInfo = {
   blurb?: string;
   cta?: string;
 };
+
+type ServiceInfo = SiteInfo & { blurb: string; cta: string };
 
 export const sites = {
   home: {
@@ -51,12 +56,7 @@ export type Site = keyof typeof sites;
 
 /** Sites que são serviços: os que têm cartão na home. */
 export type Service = {
-  [K in Site]: (typeof sites)[K] extends SiteInfo & {
-    blurb: string;
-    cta: string;
-  }
-    ? K
-    : never;
+  [K in Site]: (typeof sites)[K] extends ServiceInfo ? K : never;
 }[Site];
 
 /** Os serviços da empresa, na ordem dos cartões da home. */
@@ -73,6 +73,16 @@ export const servedSites = siteKeys.filter((site) => sites[site].route);
 
 export function siteUrl(site: Site) {
   return `https://${sites[site].subdomain}.${ROOT_DOMAIN}/`;
+}
+
+/** Título e endereço canônico da página de um site servido por este projeto. */
+export function pageMetadata(site: Site): Metadata {
+  return {
+    // o template do layout não vale para a página do mesmo segmento
+    title:
+      site === "home" ? { absolute: `Home | ${BRAND}` } : sites[site].title,
+    alternates: { canonical: siteUrl(site) },
+  };
 }
 
 export function resolveHost(

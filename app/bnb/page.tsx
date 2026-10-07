@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Button } from "@/components/button";
 import { Callout } from "@/components/callout";
 import { Cards } from "@/components/cards";
@@ -9,13 +8,10 @@ import { ServicePage } from "@/components/service-page";
 import { Team } from "@/components/team";
 import { WhatsAppButton } from "@/components/whatsapp";
 import { yearsActive } from "@/lib/company";
-import { sites, siteUrl } from "@/lib/sites";
+import { pageMetadata } from "@/lib/sites";
 import { LeadForm } from "./lead-form";
 
-export const metadata: Metadata = {
-  title: sites.bnb.title,
-  alternates: { canonical: siteUrl("bnb") },
-};
+export const metadata = pageMetadata("bnb");
 
 export default function Bnb() {
   return (

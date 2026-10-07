@@ -1,6 +1,12 @@
 import { describe, expect, test } from "bun:test";
 import { existsSync } from "node:fs";
-import { resolveHost, servedSites, services, sites } from "./sites";
+import {
+  pageMetadata,
+  resolveHost,
+  servedSites,
+  sites,
+  siteUrl,
+} from "./sites";
 
 describe("resolveHost", () => {
   test("domínio raiz redireciona para o www", () => {
@@ -28,9 +34,15 @@ test("todo site deste projeto tem uma página no app", () => {
   }
 });
 
-test("todo serviço tem os textos do cartão da home", () => {
-  for (const site of services) {
-    expect(sites[site].blurb).toBeTruthy();
-    expect(sites[site].cta).toBeTruthy();
-  }
+test("a página de um serviço recebe o título do site e o canônico do subdomínio", () => {
+  expect(pageMetadata("bnb")).toEqual({
+    title: "Consultoria BNB",
+    alternates: { canonical: siteUrl("bnb") },
+  });
+});
+
+test("a home ignora o template de título do layout", () => {
+  expect(pageMetadata("home").title).toEqual({
+    absolute: "Home | Fiel Imóveis e Investimentos",
+  });
 });

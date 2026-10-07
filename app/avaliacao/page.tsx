@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Callout } from "@/components/callout";
 import { Cards } from "@/components/cards";
 import { Checklist } from "@/components/checklist";
@@ -8,12 +7,9 @@ import { Section } from "@/components/section";
 import { ServicePage } from "@/components/service-page";
 import { Team } from "@/components/team";
 import { WhatsAppButton } from "@/components/whatsapp";
-import { sites, siteUrl } from "@/lib/sites";
+import { pageMetadata } from "@/lib/sites";
 
-export const metadata: Metadata = {
-  title: sites.avaliacao.title,
-  alternates: { canonical: siteUrl("avaliacao") },
-};
+export const metadata = pageMetadata("avaliacao");
 
 const propertyTypes = [
   "Galpões e imóveis corporativos",
