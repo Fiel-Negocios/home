@@ -24,10 +24,17 @@ test("domínio raiz redireciona para o www mantendo o caminho", async () => {
 });
 
 test("raiz de um subdomínio de serviço serve a sua página", async () => {
-  const { response, assets, next } = run("https://bnb.fielnegocios.com.br/");
-  expect(await (await response).text()).toBe("/bnb");
-  expect(assets).toHaveBeenCalledTimes(1);
-  expect(next).not.toHaveBeenCalled();
+  for (const [host, route] of [
+    ["bnb", "/bnb"],
+    ["avaliacao", "/avaliacao"],
+  ]) {
+    const { response, assets, next } = run(
+      `https://${host}.fielnegocios.com.br/`,
+    );
+    expect(await (await response).text()).toBe(route);
+    expect(assets).toHaveBeenCalledTimes(1);
+    expect(next).not.toHaveBeenCalled();
+  }
 });
 
 test("arquivos dentro de um subdomínio de serviço não são reescritos", async () => {
@@ -38,11 +45,15 @@ test("arquivos dentro de um subdomínio de serviço não são reescritos", async
   expect(assets).not.toHaveBeenCalled();
 });
 
-test("www e hosts desconhecidos seguem normalmente", async () => {
+test("www, hosts desconhecidos e prévias com nome de serviço seguem normalmente", async () => {
   for (const href of [
     "https://www.fielnegocios.com.br/",
     "https://preview.pages.dev/",
+    "https://bnb.preview.pages.dev/",
+    "https://bnb.outrodominio.com.br/",
   ]) {
-    expect(await (await run(href).response).text()).toBe("next");
+    const { response, assets } = run(href);
+    expect(await (await response).text()).toBe("next");
+    expect(assets).not.toHaveBeenCalled();
   }
 });

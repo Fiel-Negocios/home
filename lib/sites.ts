@@ -84,14 +84,3 @@ export function pageMetadata(site: Site): Metadata {
     alternates: { canonical: siteUrl(site) },
   };
 }
-
-export function resolveHost(
-  hostname: string,
-): { redirect: string } | { route: string } | null {
-  if (hostname === ROOT_DOMAIN) return { redirect: `www.${ROOT_DOMAIN}` };
-  const subdomain = hostname.split(".")[0];
-  const site = Object.values(sites).find((s) => s.subdomain === subdomain);
-  // a home já é a raiz: não precisa de reescrita
-  if (!site?.route || site.route === "/") return null;
-  return { route: site.route };
-}

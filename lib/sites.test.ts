@@ -1,32 +1,6 @@
-import { describe, expect, test } from "bun:test";
+import { expect, test } from "bun:test";
 import { existsSync } from "node:fs";
-import {
-  pageMetadata,
-  resolveHost,
-  servedSites,
-  sites,
-  siteUrl,
-} from "./sites";
-
-describe("resolveHost", () => {
-  test("domínio raiz redireciona para o www", () => {
-    expect(resolveHost("fielnegocios.com.br")).toEqual({
-      redirect: "www.fielnegocios.com.br",
-    });
-  });
-
-  test("subdomínio de serviço abre a sua página", () => {
-    expect(resolveHost("bnb.fielnegocios.com.br")).toEqual({ route: "/bnb" });
-    expect(resolveHost("avaliacao.fielnegocios.com.br")).toEqual({
-      route: "/avaliacao",
-    });
-  });
-
-  test("www e hosts desconhecidos seguem normalmente", () => {
-    expect(resolveHost("www.fielnegocios.com.br")).toBeNull();
-    expect(resolveHost("preview.pages.dev")).toBeNull();
-  });
-});
+import { pageMetadata, servedSites, sites, siteUrl } from "./sites";
 
 test("todo site deste projeto tem uma página no app", () => {
   for (const site of servedSites) {
