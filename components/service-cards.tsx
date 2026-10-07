@@ -1,5 +1,5 @@
 import Image, { type StaticImageData } from "next/image";
-import { type Service, services, sites, siteUrl } from "@/lib/sites";
+import { type Service, services, siteHref, sites } from "@/lib/sites";
 import avaliacaoImoveis from "@/public/img/avaliacao_imoveis.webp";
 import consultoriaBnb from "@/public/img/consultoria_bnb.webp";
 import vendaImoveis from "@/public/img/venda_imoveis.webp";
@@ -24,7 +24,7 @@ export function ServiceCards() {
         {services.map((service) => (
           <li key={service} className="border-t border-line last:border-b">
             <a
-              href={siteUrl(service)}
+              href={siteHref(service)}
               className="group flex items-center justify-between gap-4 py-4 sm:gap-8 sm:py-5"
             >
               <span className="flex flex-col gap-2">

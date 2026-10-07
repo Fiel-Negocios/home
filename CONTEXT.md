@@ -35,7 +35,7 @@ Uma das linhas de atuação da empresa: Venda de Imóveis, Consultoria BNB e Ava
 _Avoid_: produto, página (nem todo site é uma página deste projeto)
 
 **Site**:
-Um subdomínio da empresa: a home e cada serviço.
+Um endereço da empresa: a home e cada serviço, cada um no seu caminho do www (`/bnb`, `/avaliacao`). Venda de Imóveis fica no subdomínio `imoveis`, servido por outro sistema.
 
 **Site servido**:
 Site cuja página está neste projeto. O contrário é um **site externo**, como o de Venda de Imóveis, que outro sistema serve.
