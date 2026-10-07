@@ -1,14 +1,41 @@
+import type { Metadata } from "next";
 import { Children, Fragment, isValidElement, type ReactNode } from "react";
-import { type Service, sites } from "@/lib/sites";
+import { pageMetadata, type Service, sites } from "@/lib/sites";
 import { PageHero } from "./page-hero";
 import { type Anchor, anchors, Section, type SectionProps } from "./section";
 import { SiteHeader } from "./site-header";
+import { WhatsAppButton, type WhatsAppProps } from "./whatsapp";
 
 /**
  * Esqueleto das páginas de serviço: cabeçalho com o menu das seções, hero e
  * conteúdo. O menu lista as `Section`s com `anchor` que a página trouxer, na
  * ordem em que aparecem.
  */
+type ServicePageProps = {
+  service: Service;
+  image: ReactNode;
+  title: ReactNode;
+  text: ReactNode;
+  action?: ReactNode;
+  children: ReactNode;
+};
+
+/**
+ * Tudo que uma página de serviço precisa saber do seu serviço, ligado uma vez:
+ * metadados, o esqueleto e o botão de contato com a mensagem do serviço.
+ */
+export function servicePage(service: Service): {
+  metadata: Metadata;
+  Page: (props: Omit<ServicePageProps, "service">) => ReactNode;
+  ContactButton: (props: Omit<WhatsAppProps, "service">) => ReactNode;
+} {
+  return {
+    metadata: pageMetadata(service),
+    Page: (props) => <ServicePage service={service} {...props} />,
+    ContactButton: (props) => <WhatsAppButton service={service} {...props} />,
+  };
+}
+
 export function ServicePage({
   service,
   image,
@@ -16,14 +43,7 @@ export function ServicePage({
   text,
   action,
   children,
-}: {
-  service: Service;
-  image: ReactNode;
-  title: ReactNode;
-  text: ReactNode;
-  action?: ReactNode;
-  children: ReactNode;
-}) {
+}: ServicePageProps) {
   const menu = anchoredSections(children);
   return (
     <>

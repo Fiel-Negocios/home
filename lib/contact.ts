@@ -15,3 +15,11 @@ export function contactMessage(service?: Service) {
 export function whatsappLink(message = contactMessage()) {
   return `https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
 }
+
+/** Mensagem inicial de um lead: o pedido e uma linha por dado preenchido. */
+export function leadMessage(fields: [label: string, value: string][]) {
+  return [
+    "Vim do site, quero uma análise para o Financiamento BNB.",
+    ...fields.map(([label, value]) => `${label}: ${value}`),
+  ].join("\n");
+}
