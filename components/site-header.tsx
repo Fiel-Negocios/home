@@ -1,29 +1,32 @@
 import type { ReactNode } from "react";
 import { BRAND } from "@/lib/company";
+import { type Service, siteUrl } from "@/lib/sites";
+import { WhatsAppButton } from "./whatsapp";
 
-const logoClass = "w-[min(55vw,14rem)] sm:mr-auto sm:w-48";
-
-function Logo({ className }: { className: string }) {
-  return <img className={className} src="/svg/fiel_logo.svg" alt={BRAND} />;
-}
-
+/**
+ * Cabeçalho de todas as páginas: logo que leva à home, o que a página quiser
+ * no meio (o menu das seções, nas páginas de serviço) e o botão de contato.
+ */
 export function SiteHeader({
-  logoHref,
+  service,
   children,
 }: {
-  logoHref?: string;
+  /** Serviço da página; entra na mensagem do botão de contato. */
+  service?: Service;
   children?: ReactNode;
 }) {
   return (
     <header className="wrap flex items-center justify-center gap-8 py-6 sm:justify-start">
-      {logoHref ? (
-        <a href={logoHref} className={logoClass}>
-          <Logo className="w-full" />
-        </a>
-      ) : (
-        <Logo className={logoClass} />
-      )}
+      <a
+        href={siteUrl("home")}
+        className="w-[min(55vw,14rem)] sm:mr-auto sm:w-48"
+      >
+        <img className="w-full" src="/svg/fiel_logo.svg" alt={BRAND} />
+      </a>
       {children}
+      <WhatsAppButton service={service} className="hidden sm:inline-block">
+        Fale conosco
+      </WhatsAppButton>
     </header>
   );
 }

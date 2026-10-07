@@ -1,9 +1,8 @@
 import { Children, Fragment, isValidElement, type ReactNode } from "react";
-import { type Service, sites, siteUrl } from "@/lib/sites";
+import { type Service, sites } from "@/lib/sites";
 import { PageHero } from "./page-hero";
 import { type Anchor, anchors, Section, type SectionProps } from "./section";
 import { SiteHeader } from "./site-header";
-import { WhatsAppButton } from "./whatsapp";
 
 /**
  * Esqueleto das páginas de serviço: cabeçalho com o menu das seções, hero e
@@ -28,7 +27,7 @@ export function ServicePage({
   const menu = anchoredSections(children);
   return (
     <>
-      <SiteHeader logoHref={siteUrl("home")}>
+      <SiteHeader service={service}>
         {menu.length > 0 && (
           <nav
             aria-label="Seções da página"
@@ -41,9 +40,6 @@ export function ServicePage({
             ))}
           </nav>
         )}
-        <WhatsAppButton service={service} className="hidden sm:inline-block">
-          Fale conosco
-        </WhatsAppButton>
       </SiteHeader>
       <main className="flex-1">
         <PageHero
