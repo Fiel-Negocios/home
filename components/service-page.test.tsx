@@ -2,7 +2,7 @@ import { expect, test } from "bun:test";
 import { renderToStaticMarkup } from "react-dom/server";
 import { Callout } from "./callout";
 import { Section } from "./section";
-import { ServicePage } from "./service-page";
+import { ServicePage, servicePage } from "./service-page";
 
 function navTargets(html: string) {
   const nav = html.match(/<nav[^>]*>(.*?)<\/nav>/)?.[1] ?? "";
@@ -32,4 +32,11 @@ test("o menu lista as seções ancoradas da página, na ordem em que aparecem", 
 
 test("sem seções ancoradas, não há menu", () => {
   expect(page(<Section title="Só isso" />)).not.toContain("<nav");
+});
+
+test("servicePage liga o serviço aos metadados e ao botão de contato", () => {
+  const { metadata, ContactButton } = servicePage("avaliacao");
+  expect(metadata.title).toBe("Avaliação de Imóveis");
+  const html = renderToStaticMarkup(<ContactButton>x</ContactButton>);
+  expect(decodeURIComponent(html)).toContain("Avaliação de Imóveis");
 });

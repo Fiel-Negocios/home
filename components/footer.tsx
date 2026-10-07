@@ -22,7 +22,10 @@ export function Footer() {
       </div>
       {/* pb-24 no celular: espaço para o botão flutuante do WhatsApp */}
       <div className="wrap flex flex-col items-start justify-between gap-4 border-t border-white/15 pt-6 pb-24 text-[0.85rem] sm:flex-row sm:items-center sm:pb-6">
-        <p>&copy; 2026 {BRAND}. Todos os direitos reservados.</p>
+        <p>
+          &copy; {new Date().getFullYear()} {BRAND}. Todos os direitos
+          reservados.
+        </p>
         <p>
           Feito por{" "}
           <a

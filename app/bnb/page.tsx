@@ -5,20 +5,19 @@ import { Cards } from "@/components/cards";
 import { Checklist } from "@/components/checklist";
 import { Faq } from "@/components/faq";
 import { Section } from "@/components/section";
-import { ServicePage } from "@/components/service-page";
+import { servicePage } from "@/components/service-page";
 import { Team } from "@/components/team";
-import { WhatsAppButton } from "@/components/whatsapp";
 import { yearsActive } from "@/lib/company";
-import { pageMetadata } from "@/lib/sites";
 import bnbLogo from "@/public/svg/bnb.svg";
 import { LeadForm } from "./lead-form";
 
-export const metadata = pageMetadata("bnb");
+const { metadata, Page, ContactButton } = servicePage("bnb");
+
+export { metadata };
 
 export default function Bnb() {
   return (
-    <ServicePage
-      service="bnb"
+    <Page
       image={
         <Image
           className="h-auto w-[clamp(4.5rem,10vw,7rem)]"
@@ -88,9 +87,9 @@ export default function Bnb() {
         className="text-center"
         text="Solicitar um financiamento sem assessoria pode se tornar um processo demorado."
       >
-        <WhatsAppButton service="bnb" className="mt-6">
+        <ContactButton className="mt-6">
           Falar com um especialista
-        </WhatsAppButton>
+        </ContactButton>
       </Callout>
 
       <Section eyebrow="Especialistas" title="Quem cuida do seu projeto">
@@ -153,6 +152,6 @@ export default function Bnb() {
       >
         <LeadForm />
       </Section>
-    </ServicePage>
+    </Page>
   );
 }

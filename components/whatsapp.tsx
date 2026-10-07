@@ -3,7 +3,7 @@ import { contactMessage, whatsappLink } from "@/lib/contact";
 import type { Service } from "@/lib/sites";
 import { Button } from "./button";
 
-type WhatsAppProps = ComponentProps<"a"> & {
+export type WhatsAppProps = ComponentProps<"a"> & {
   /** Serviço da página; entra na mensagem inicial. */
   service?: Service;
   /** Mensagem inicial completa, quando a padrão não serve. */

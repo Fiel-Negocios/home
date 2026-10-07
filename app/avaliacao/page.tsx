@@ -5,13 +5,13 @@ import { Checklist } from "@/components/checklist";
 import { Faq } from "@/components/faq";
 import { Intro } from "@/components/intro";
 import { Section } from "@/components/section";
-import { ServicePage } from "@/components/service-page";
+import { servicePage } from "@/components/service-page";
 import { Team } from "@/components/team";
-import { WhatsAppButton } from "@/components/whatsapp";
-import { pageMetadata } from "@/lib/sites";
 import avaliacaoHero from "@/public/img/avaliacao.webp";
 
-export const metadata = pageMetadata("avaliacao");
+const { metadata, Page, ContactButton } = servicePage("avaliacao");
+
+export { metadata };
 
 const propertyTypes = [
   "Galpões e imóveis corporativos",
@@ -41,8 +41,7 @@ const steps = [
 
 export default function Avaliacao() {
   return (
-    <ServicePage
-      service="avaliacao"
+    <Page
       image={
         <Image
           className="aspect-square w-[clamp(7rem,16vw,11rem)] rounded-(--radius) object-cover"
@@ -72,9 +71,9 @@ export default function Avaliacao() {
           validade jurídica e bancária. Emitimos laudos conforme a NBR 14.653
           com responsabilidade técnica (ART).
         </Intro>
-        <WhatsAppButton service="avaliacao" className="mt-8">
+        <ContactButton className="mt-8">
           Solicitar orçamento do laudo
-        </WhatsAppButton>
+        </ContactButton>
       </Section>
 
       <Section
@@ -137,9 +136,7 @@ export default function Avaliacao() {
         eyebrow="Credibilidade técnica"
         text="Laudos elaborados por engenheiro habilitado e associado ao IBAPE, com responsabilidade técnica (ART), conforme a NBR 14.653."
       >
-        <WhatsAppButton service="avaliacao" className="mt-6">
-          Solicitar avaliação
-        </WhatsAppButton>
+        <ContactButton className="mt-6">Solicitar avaliação</ContactButton>
       </Callout>
 
       <Section
@@ -165,9 +162,7 @@ export default function Avaliacao() {
         intro="Atendemos todo o Ceará, com possibilidade de atuação em outros estados mediante análise."
       >
         <Team members={["david", "sandy", "daniel"]} />
-        <WhatsAppButton service="avaliacao" className="mt-8">
-          Chamar no WhatsApp
-        </WhatsAppButton>
+        <ContactButton className="mt-8">Chamar no WhatsApp</ContactButton>
       </Section>
 
       <Section anchor="duvidas" title="Perguntas frequentes">
@@ -230,6 +225,6 @@ export default function Avaliacao() {
           ]}
         />
       </Section>
-    </ServicePage>
+    </Page>
   );
 }
