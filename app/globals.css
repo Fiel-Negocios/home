@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 800px;
+
+  --color-navy: #144365;
+  --color-deep-navy: #0c2a40;
+  --color-gold: #9c7141;
+  --color-mist: #eef2f5;
+  --color-line: #c5d1da;
+  --color-muted: #3d5568;
+
+  --radius: 0.5rem;
+  --font-sans: var(--font-montserrat), sans-serif;
+}
+
+@layer base {
+  html {
+    background: var(--color-mist);
+    /* sem o "elástico" ao rolar além do topo/rodapé no celular */
+    overscroll-behavior-y: none;
+  }
+
+  body {
+    interpolate-size: allow-keywords;
+  }
+
+  @media (hover: hover) {
+    body {
+      scrollbar-gutter: stable;
+    }
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      /* biome-ignore lint/complexity/noImportantStyles: precisa vencer as transições dos componentes */
+      transition: none !important;
+    }
+  }
+}
+
+/* coluna central compartilhada por todas as seções */
+@utility wrap {
+  width: min(72rem, 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+/* imagem ainda não definida */
+@utility placeholder {
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius);
+  background: repeating-linear-gradient(
+    -45deg,
+    #dfe6ec 0 12px,
+    #e7edf1 12px 24px
+  );
+  color: #6b8193;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
