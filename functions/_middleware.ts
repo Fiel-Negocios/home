@@ -1,4 +1,4 @@
-import { ROOT_DOMAIN, siteForHost, sites } from "../lib/sites";
+import { ROOT_DOMAIN, siteForHost, sites, siteUrl } from "../lib/sites";
 
 type Context = {
   request: Request;
@@ -17,7 +17,7 @@ export async function onRequest({ request, next, env }: Context) {
   const url = new URL(request.url);
 
   if (url.hostname === ROOT_DOMAIN) {
-    url.hostname = `www.${ROOT_DOMAIN}`;
+    url.hostname = new URL(siteUrl("home")).hostname;
     return Response.redirect(url, 301);
   }
 

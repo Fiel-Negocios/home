@@ -59,14 +59,12 @@ export type Service = {
   [K in Site]: (typeof sites)[K] extends ServiceInfo ? K : never;
 }[Site];
 
-/** Os serviços da empresa, na ordem dos cartões da home. */
-export const services = [
-  "imoveis",
-  "bnb",
-  "avaliacao",
-] as const satisfies readonly Service[];
-
 export const siteKeys = Object.keys(sites) as Site[];
+
+/** Os serviços da empresa, na ordem do registro: a ordem dos cartões da home. */
+export const services = siteKeys.filter(
+  (site): site is Service => "blurb" in sites[site],
+);
 
 /** Sites com página neste projeto. */
 export const servedSites = siteKeys.filter((site) => sites[site].route);
