@@ -7,7 +7,7 @@ import { Intro } from "@/components/intro";
 import { Section } from "@/components/section";
 import { ServicePage } from "@/components/service-page";
 import { Team } from "@/components/team";
-import { WhatsAppButton } from "@/components/whatsapp-button";
+import { WhatsAppButton } from "@/components/whatsapp";
 import { sites, siteUrl } from "@/lib/sites";
 
 export const metadata: Metadata = {
@@ -74,7 +74,7 @@ export default function Avaliacao() {
           validade jurídica e bancária. Emitimos laudos conforme a NBR 14.653
           com responsabilidade técnica (ART).
         </Intro>
-        <WhatsAppButton className="mt-8">
+        <WhatsAppButton service="avaliacao" className="mt-8">
           Solicitar orçamento do laudo
         </WhatsAppButton>
       </Section>
@@ -139,7 +139,9 @@ export default function Avaliacao() {
         eyebrow="Credibilidade técnica"
         text="Laudos elaborados por engenheiro habilitado e associado ao IBAPE, com responsabilidade técnica (ART), conforme a NBR 14.653."
       >
-        <WhatsAppButton className="mt-6">Solicitar avaliação</WhatsAppButton>
+        <WhatsAppButton service="avaliacao" className="mt-6">
+          Solicitar avaliação
+        </WhatsAppButton>
       </Callout>
 
       <Section
@@ -165,7 +167,9 @@ export default function Avaliacao() {
         intro="Atendemos todo o Ceará, com possibilidade de atuação em outros estados mediante análise."
       >
         <Team members={["david", "sandy", "daniel"]} />
-        <WhatsAppButton className="mt-8">Chamar no WhatsApp</WhatsAppButton>
+        <WhatsAppButton service="avaliacao" className="mt-8">
+          Chamar no WhatsApp
+        </WhatsAppButton>
       </Section>
 
       <Section anchor="duvidas" title="Perguntas frequentes">

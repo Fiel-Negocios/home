@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
-import { type Site, sites, siteUrl } from "@/lib/sites";
+import { type Service, sites, siteUrl } from "@/lib/sites";
 import { anchors } from "./anchors";
 import { PageHero } from "./page-hero";
 import { SiteHeader } from "./site-header";
-import { WhatsAppButton } from "./whatsapp-button";
+import { WhatsAppButton } from "./whatsapp";
 
 /**
  * Esqueleto das páginas de serviço: cabeçalho com o menu das seções, hero e
@@ -18,7 +18,7 @@ export function ServicePage({
   action,
   children,
 }: {
-  site: Site;
+  site: Service;
   image: ReactNode;
   title: ReactNode;
   text: ReactNode;
@@ -38,7 +38,7 @@ export function ServicePage({
             </a>
           ))}
         </nav>
-        <WhatsAppButton className="hidden sm:inline-block">
+        <WhatsAppButton service={site} className="hidden sm:inline-block">
           Fale conosco
         </WhatsAppButton>
       </SiteHeader>

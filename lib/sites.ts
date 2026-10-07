@@ -49,12 +49,22 @@ export const sites = {
 
 export type Site = keyof typeof sites;
 
+/** Sites que são serviços: os que têm cartão na home. */
+export type Service = {
+  [K in Site]: (typeof sites)[K] extends SiteInfo & {
+    blurb: string;
+    cta: string;
+  }
+    ? K
+    : never;
+}[Site];
+
 /** Os serviços da empresa, na ordem dos cartões da home. */
 export const services = [
   "imoveis",
   "bnb",
   "avaliacao",
-] as const satisfies readonly Site[];
+] as const satisfies readonly Service[];
 
 export const siteKeys = Object.keys(sites) as Site[];
 

@@ -1,6 +1,6 @@
 import { BRAND, EMAIL, HOURS } from "@/lib/company";
 import { TextLink } from "./text-link";
-import { WhatsAppButton } from "./whatsapp-button";
+import { WhatsAppButton } from "./whatsapp";
 
 export function Footer() {
   return (

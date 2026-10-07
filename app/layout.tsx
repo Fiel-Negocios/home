@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import { Footer } from "@/components/footer";
-import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { WhatsAppFloat } from "@/components/whatsapp";
 import { BRAND } from "@/lib/company";
 import "./globals.css";
 

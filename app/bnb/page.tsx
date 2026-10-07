@@ -7,7 +7,7 @@ import { Faq } from "@/components/faq";
 import { Section } from "@/components/section";
 import { ServicePage } from "@/components/service-page";
 import { Team } from "@/components/team";
-import { WhatsAppButton } from "@/components/whatsapp-button";
+import { WhatsAppButton } from "@/components/whatsapp";
 import { yearsActive } from "@/lib/company";
 import { sites, siteUrl } from "@/lib/sites";
 import { LeadForm } from "./lead-form";
@@ -90,7 +90,7 @@ export default function Bnb() {
         className="text-center"
         text="Solicitar um financiamento sem assessoria pode se tornar um processo demorado."
       >
-        <WhatsAppButton className="mt-6">
+        <WhatsAppButton service="bnb" className="mt-6">
           Falar com um especialista
         </WhatsAppButton>
       </Callout>

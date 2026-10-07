@@ -1,7 +1,7 @@
 "use client";
 
 import type { SubmitEvent } from "react";
-import { buttonClass } from "@/components/button";
+import { SubmitButton } from "@/components/button";
 import { whatsappLink } from "@/lib/contact";
 import { bnbLeadFields, bnbLeadMessage, readBnbLead } from "./lead";
 
@@ -53,12 +53,9 @@ export function LeadForm() {
         Concordo em fornecer meus dados para receber conteúdos e ofertas por
         e-mail ou outros meios.
       </label>
-      <button
-        className={`${buttonClass} col-span-full justify-self-center`}
-        type="submit"
-      >
+      <SubmitButton className="col-span-full justify-self-center">
         Enviar agora mesmo
-      </button>
+      </SubmitButton>
     </form>
   );
 }
