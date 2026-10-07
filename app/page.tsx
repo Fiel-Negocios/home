@@ -1,7 +1,9 @@
+import Image from "next/image";
 import { ServiceCards } from "@/components/service-cards";
 import { SiteHeader } from "@/components/site-header";
 import { yearsActive } from "@/lib/company";
 import { pageMetadata } from "@/lib/sites";
+import fielSimbolo from "@/public/svg/fiel_simbolo.svg";
 
 export const metadata = pageMetadata("home");
 
@@ -11,9 +13,9 @@ export default function Home() {
       <SiteHeader />
       <main className="flex-1">
         <section className="wrap flex items-center gap-5 pt-4 pb-8">
-          <img
-            className="hidden w-[clamp(3.5rem,7vw,5rem)] shrink-0 sm:block"
-            src="/svg/fiel_simbolo.svg"
+          <Image
+            className="hidden h-auto w-[clamp(3.5rem,7vw,5rem)] shrink-0 sm:block"
+            src={fielSimbolo}
             alt=""
           />
           <div>

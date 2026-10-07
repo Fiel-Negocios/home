@@ -1,6 +1,8 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 import { BRAND } from "@/lib/company";
 import { type Service, siteUrl } from "@/lib/sites";
+import fielLogo from "@/public/svg/fiel_logo.svg";
 import { WhatsAppButton } from "./whatsapp";
 
 /**
@@ -21,7 +23,7 @@ export function SiteHeader({
         href={siteUrl("home")}
         className="w-[min(55vw,14rem)] sm:mr-auto sm:w-48"
       >
-        <img className="w-full" src="/svg/fiel_logo.svg" alt={BRAND} />
+        <Image className="h-auto w-full" src={fielLogo} alt={BRAND} preload />
       </a>
       {children}
       <WhatsAppButton service={service} className="hidden sm:inline-block">
