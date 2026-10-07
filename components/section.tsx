@@ -1,7 +1,6 @@
 import type { ComponentProps, ReactNode } from "react";
 import { Eyebrow } from "./eyebrow";
 import { Intro } from "./intro";
-import { SectionTitle } from "./section-title";
 
 /** Seções que o menu das páginas de serviço pode listar, com seus rótulos. */
 export const anchors = {
@@ -38,7 +37,11 @@ export function Section({
       {...props}
     >
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-      {title && <SectionTitle>{title}</SectionTitle>}
+      {title && (
+        <h2 className="max-w-160 text-[clamp(1.4rem,3.5vw,2.25rem)] leading-[1.15] font-extrabold tracking-[-0.015em] text-balance">
+          {title}
+        </h2>
+      )}
       {intro && <Intro>{intro}</Intro>}
       {children}
     </section>

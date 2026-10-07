@@ -1,6 +1,7 @@
 import { BRAND, EMAIL, HOURS } from "@/lib/company";
-import { TextLink } from "./text-link";
 import { WhatsAppButton } from "./whatsapp";
+
+const linkClass = "text-white underline underline-offset-[0.2em]";
 
 export function Footer() {
   return (
@@ -12,7 +13,10 @@ export function Footer() {
           </h2>
           <p className="mt-2 max-w-xl leading-relaxed">
             Atendimento {HOURS}, pelo WhatsApp ou pelo email{" "}
-            <TextLink href={`mailto:${EMAIL}`}>{EMAIL}</TextLink>.
+            <a className={linkClass} href={`mailto:${EMAIL}`}>
+              {EMAIL}
+            </a>
+            .
           </p>
         </div>
         <WhatsAppButton>Falar no WhatsApp</WhatsAppButton>
@@ -28,13 +32,14 @@ export function Footer() {
         <p>&copy; 2026 {BRAND}. Todos os direitos reservados.</p>
         <p>
           Feito por{" "}
-          <TextLink
+          <a
+            className={linkClass}
             href="https://github.com/kauanallyson"
             target="_blank"
             rel="noopener"
           >
             Kauan Allyson
-          </TextLink>
+          </a>
         </p>
       </div>
     </footer>
