@@ -4,18 +4,17 @@ import {
   pageMetadata,
   servedSites,
   services,
-  siteForHost,
-  sites,
+  siteHref,
   siteUrl,
 } from "./sites";
 
 test("todo site deste projeto tem uma página no app", () => {
   for (const site of servedSites) {
-    expect(existsSync(`app${sites[site].route}/page.tsx`)).toBe(true);
+    expect(existsSync(`app${siteHref(site)}/page.tsx`)).toBe(true);
   }
 });
 
-test("a página de um serviço recebe o título do site e o canônico do subdomínio", () => {
+test("a página de um serviço recebe o título do site e o canônico do seu caminho", () => {
   expect(pageMetadata("bnb")).toEqual({
     title: "Consultoria BNB",
     alternates: { canonical: siteUrl("bnb") },
@@ -28,11 +27,15 @@ test("a home ignora o template de título do layout", () => {
   });
 });
 
-test("o host leva ao site servido; hosts de fora não levam a nenhum", () => {
-  expect(siteForHost("bnb.fielnegocios.com.br")).toBe("bnb");
-  expect(siteForHost("www.fielnegocios.com.br")).toBe("home");
-  expect(siteForHost("imoveis.fielnegocios.com.br")).toBeUndefined();
-  expect(siteForHost("bnb.preview.pages.dev")).toBeUndefined();
+test("sites servidos ficam em caminhos do www; o externo mantém o seu endereço", () => {
+  expect(siteUrl("home")).toBe("https://www.fielnegocios.com.br/");
+  expect(siteUrl("bnb")).toBe("https://www.fielnegocios.com.br/bnb");
+  expect(siteUrl("imoveis")).toBe("https://imoveis.fielnegocios.com.br/");
+});
+
+test("links levam ao caminho das páginas deste projeto e ao endereço do externo", () => {
+  expect(siteHref("bnb")).toBe("/bnb");
+  expect(siteHref("imoveis")).toBe("https://imoveis.fielnegocios.com.br/");
 });
 
 test("serviços são os sites com cartão na home, na ordem do registro", () => {

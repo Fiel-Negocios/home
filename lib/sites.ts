@@ -4,36 +4,39 @@ import { BRAND } from "./company";
 export const ROOT_DOMAIN = "fielnegocios.com.br";
 
 type SiteInfo = {
-  subdomain: string;
-  /** Página deste projeto; `null` quando o site é servido por outro sistema. */
-  route: string | null;
   title: string;
   /** Texto do llms.txt. */
   description: string;
   /** Texto e chamada do cartão na home; só os serviços têm. */
   blurb?: string;
   cta?: string;
-};
+} & (
+  | {
+      /** Caminho da página deste projeto, no www. */
+      route: string;
+    }
+  | {
+      /** Endereço de um site externo, servido por outro sistema. */
+      url: string;
+    }
+);
 
 type ServiceInfo = SiteInfo & { blurb: string; cta: string };
 
 export const sites = {
   home: {
-    subdomain: "www",
     route: "/",
     title: "Página inicial",
     description: "Visão geral da empresa e contato.",
   },
   imoveis: {
-    subdomain: "imoveis",
-    route: null,
+    url: `https://imoveis.${ROOT_DOMAIN}/`,
     title: "Venda de Imóveis",
     description: "Imóveis comerciais e corporativos à venda.",
     blurb: "Imóveis comerciais e corporativos à venda.",
     cta: "Ver imóveis",
   },
   bnb: {
-    subdomain: "bnb",
     route: "/bnb",
     title: "Consultoria BNB",
     description:
@@ -42,7 +45,6 @@ export const sites = {
     cta: "Falar sobre crédito BNB",
   },
   avaliacao: {
-    subdomain: "avaliacao",
     route: "/avaliacao",
     title: "Avaliação de Imóveis",
     description:
@@ -67,17 +69,20 @@ export const services = siteKeys.filter(
 );
 
 /** Sites com página neste projeto. */
-export const servedSites = siteKeys.filter((site) => sites[site].route);
+export const servedSites = siteKeys.filter((site) => "route" in sites[site]);
 
+/** Host do www, onde ficam todas as páginas deste projeto. */
+export const HOME_HOST = `www.${ROOT_DOMAIN}`;
+
+/** Endereço absoluto do site: canônico, sitemap e llms.txt. */
 export function siteUrl(site: Site) {
-  return `https://${sites[site].subdomain}.${ROOT_DOMAIN}/`;
+  return new URL(siteHref(site), `https://${HOME_HOST}`).href;
 }
 
-/** Site servido pelo host; `undefined` para hosts de fora do domínio. */
-export function siteForHost(hostname: string): Site | undefined {
-  return servedSites.find(
-    (site) => new URL(siteUrl(site)).hostname === hostname,
-  );
+/** Link para o site: o caminho quando é deste projeto, para valer em prévias e no dev. */
+export function siteHref(site: Site) {
+  const info: SiteInfo = sites[site];
+  return "route" in info ? info.route : info.url;
 }
 
 /** Título e endereço canônico da página de um site servido por este projeto. */
