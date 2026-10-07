@@ -1,5 +1,5 @@
 import { BRAND } from "@/lib/brand";
-import { EMAIL } from "@/lib/contact";
+import { EMAIL, HOURS } from "@/lib/contact";
 import { TextLink } from "./text-link";
 import { WhatsAppButton } from "./whatsapp-button";
 
@@ -12,7 +12,7 @@ export function Footer() {
             Fale conosco
           </h2>
           <p className="mt-2 max-w-xl leading-relaxed">
-            Atendimento das 09h às 18h, pelo WhatsApp ou pelo email{" "}
+            Atendimento {HOURS}, pelo WhatsApp ou pelo email{" "}
             <TextLink href={`mailto:${EMAIL}`}>{EMAIL}</TextLink>.
           </p>
         </div>

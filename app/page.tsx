@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import { BRAND } from "@/lib/brand";
-import { siteUrl } from "@/lib/sites";
+import { services, sites, siteUrl } from "@/lib/sites";
 import avaliacaoImoveis from "@/public/img/avaliacao_imoveis.webp";
 import consultoriaBnb from "@/public/img/consultoria_bnb.webp";
 import vendaImoveis from "@/public/img/venda_imoveis.webp";
@@ -13,29 +13,11 @@ export const metadata: Metadata = {
   alternates: { canonical: siteUrl("home") },
 };
 
-const services = [
-  {
-    href: siteUrl("imoveis"),
-    title: "Venda de Imóveis",
-    text: "Imóveis comerciais e corporativos à venda.",
-    cta: "Ver imóveis",
-    img: vendaImoveis,
-  },
-  {
-    href: siteUrl("bnb"),
-    title: "Consultoria BNB",
-    text: "Orientação para solicitar crédito no Banco do Nordeste.",
-    cta: "Falar sobre crédito BNB",
-    img: consultoriaBnb,
-  },
-  {
-    href: siteUrl("avaliacao"),
-    title: "Avaliação de Imóveis",
-    text: "Saiba o valor de mercado do seu imóvel.",
-    cta: "Pedir avaliação",
-    img: avaliacaoImoveis,
-  },
-];
+const images = {
+  imoveis: vendaImoveis,
+  bnb: consultoriaBnb,
+  avaliacao: avaliacaoImoveis,
+};
 
 export default function Home() {
   return (
@@ -69,26 +51,26 @@ export default function Home() {
             Nossos principais serviços
           </h2>
           <ul>
-            {services.map((s) => (
-              <li key={s.href} className="border-t border-line last:border-b">
+            {services.map((site) => (
+              <li key={site} className="border-t border-line last:border-b">
                 <a
-                  href={s.href}
+                  href={siteUrl(site)}
                   className="group flex items-center justify-between gap-4 py-4 sm:gap-8 sm:py-5"
                 >
                   <span className="flex flex-col gap-2">
                     <strong className="text-[clamp(1.4rem,3.5vw,2.25rem)] leading-[1.1] font-extrabold tracking-[-0.015em] underline decoration-transparent decoration-3 underline-offset-[0.2em] transition-[text-decoration-color] duration-250 group-hover:decoration-gold">
-                      {s.title}
+                      {sites[site].title}
                     </strong>
                     <span className="text-[0.95rem] text-muted sm:text-[1.1rem]">
-                      {s.text}
+                      {sites[site].blurb}
                     </span>
                     <em className="font-semibold text-gold not-italic">
-                      {s.cta}
+                      {sites[site].cta}
                     </em>
                   </span>
                   <Image
                     className="aspect-square w-22 shrink-0 rounded-(--radius) object-cover sm:w-32"
-                    src={s.img}
+                    src={images[site]}
                     alt=""
                   />
                 </a>

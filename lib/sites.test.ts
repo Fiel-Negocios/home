@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { existsSync } from "node:fs";
-import { resolveHost, sites } from "./sites";
+import { resolveHost, servedSites, services, sites } from "./sites";
 
 describe("resolveHost", () => {
   test("domínio raiz redireciona para o www", () => {
@@ -22,9 +22,15 @@ describe("resolveHost", () => {
   });
 });
 
-test("toda rota de site tem uma página no app", () => {
-  expect(existsSync("app/page.tsx")).toBe(true);
-  for (const { route } of Object.values(sites)) {
-    if (route) expect(existsSync(`app${route}/page.tsx`)).toBe(true);
+test("todo site deste projeto tem uma página no app", () => {
+  for (const site of servedSites) {
+    expect(existsSync(`app${sites[site].route}/page.tsx`)).toBe(true);
+  }
+});
+
+test("todo serviço tem os textos do cartão da home", () => {
+  for (const site of services) {
+    expect(sites[site].blurb).toBeTruthy();
+    expect(sites[site].cta).toBeTruthy();
   }
 });
