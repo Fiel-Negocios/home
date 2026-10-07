@@ -2,8 +2,7 @@
 
 import type { SubmitEvent } from "react";
 import { SubmitButton } from "@/components/button";
-import { whatsappLink } from "@/lib/contact";
-import { bnbLeadFields, bnbLeadMessage, readBnbLead } from "./lead";
+import { bnbLeadFields, bnbLeadLink } from "./lead";
 
 const inputClass =
   "rounded-(--radius) border border-line bg-white px-4 py-[0.8rem] font-normal text-navy";
@@ -12,8 +11,7 @@ const labelClass = "flex flex-col gap-[0.4rem] text-[0.95rem] font-semibold";
 export function LeadForm() {
   function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
-    const lead = readBnbLead(new FormData(event.currentTarget));
-    window.open(whatsappLink(bnbLeadMessage(lead)), "_blank");
+    window.open(bnbLeadLink(new FormData(event.currentTarget)), "_blank");
   }
 
   return (

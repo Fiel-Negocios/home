@@ -1,3 +1,11 @@
+import { whatsappLink } from "@/lib/contact";
+
+/**
+ * Lead do BNB: o formulário da página vira uma mensagem de WhatsApp com os
+ * dados preenchidos. Este módulo define os campos e transforma o formulário
+ * enviado no link a abrir.
+ */
+
 type BnbLeadName =
   | "nome"
   | "empresa"
@@ -6,11 +14,10 @@ type BnbLeadName =
   | "valor"
   | "projeto";
 
-export type BnbLead = Record<BnbLeadName, string>;
-
 type BnbLeadField = {
   name: BnbLeadName;
   label: string;
+  /** Rótulo do campo na mensagem. */
   message: string;
   type?: "email" | "tel";
   autoComplete?: string;
@@ -55,16 +62,14 @@ export const bnbLeadFields: readonly BnbLeadField[] = [
   },
 ];
 
-// campo ausente vira texto vazio
-export function readBnbLead(form: FormData): BnbLead {
-  return Object.fromEntries(
-    bnbLeadFields.map(({ name }) => [name, String(form.get(name) ?? "")]),
-  ) as BnbLead;
-}
-
-export function bnbLeadMessage(lead: BnbLead) {
-  return [
-    "Vim do site, quero uma análise para o Financiamento BNB.",
-    ...bnbLeadFields.map((f) => `${f.message}: ${lead[f.name]}`),
-  ].join("\n");
+/** Link do WhatsApp com a mensagem do lead; campo ausente vira texto vazio. */
+export function bnbLeadLink(form: FormData) {
+  const lines = bnbLeadFields.map(
+    ({ name, message }) => `${message}: ${String(form.get(name) ?? "")}`,
+  );
+  return whatsappLink(
+    ["Vim do site, quero uma análise para o Financiamento BNB.", ...lines].join(
+      "\n",
+    ),
+  );
 }
