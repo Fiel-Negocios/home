@@ -16,19 +16,12 @@ export function Footer() {
             <a className={linkClass} href={`mailto:${EMAIL}`}>
               {EMAIL}
             </a>
-            .
           </p>
         </div>
         <WhatsAppButton>Falar no WhatsApp</WhatsAppButton>
       </div>
       {/* pb-24 no celular: espaço para o botão flutuante do WhatsApp */}
       <div className="wrap flex flex-col items-start justify-between gap-4 border-t border-white/15 pt-6 pb-24 text-[0.85rem] sm:flex-row sm:items-center sm:pb-6">
-        <img
-          className="w-32 brightness-0 invert"
-          loading="lazy"
-          src="/svg/fiel_logo.svg"
-          alt={BRAND}
-        />
         <p>&copy; 2026 {BRAND}. Todos os direitos reservados.</p>
         <p>
           Feito por{" "}
