@@ -79,6 +79,11 @@ export function siteUrl(site: Site) {
   return new URL(siteHref(site), `https://${HOME_HOST}`).href;
 }
 
+/** Site servido por outro sistema, fora deste projeto. */
+export function isExternalSite(site: Site) {
+  return "url" in sites[site];
+}
+
 /** Link para o site: o caminho quando é deste projeto, para valer em prévias e no dev. */
 export function siteHref(site: Site) {
   const info: SiteInfo = sites[site];

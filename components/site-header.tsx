@@ -1,8 +1,9 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { BRAND } from "@/lib/company";
-import { type Service, siteHref } from "@/lib/sites";
+import type { Service } from "@/lib/sites";
 import fielLogo from "@/public/svg/fiel_logo.svg";
+import { SiteLink } from "./site-link";
 import { WhatsAppButton } from "./whatsapp";
 
 /**
@@ -19,12 +20,9 @@ export function SiteHeader({
 }) {
   return (
     <header className="wrap flex items-center justify-center gap-8 py-6 sm:justify-start">
-      <a
-        href={siteHref("home")}
-        className="w-[min(55vw,14rem)] sm:mr-auto sm:w-48"
-      >
+      <SiteLink site="home" className="w-[min(55vw,14rem)] sm:mr-auto sm:w-48">
         <Image className="h-auto w-full" src={fielLogo} alt={BRAND} preload />
-      </a>
+      </SiteLink>
       {children}
       <WhatsAppButton service={service} className="max-sm:hidden">
         Fale conosco
