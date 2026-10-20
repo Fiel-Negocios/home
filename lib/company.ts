@@ -1,6 +1,6 @@
-import type { Service } from "./sites";
-
 /** Fatos da empresa: nome, tempo de atuação, atendimento e especialistas. */
+
+import type { Service } from "./sites";
 
 export const BRAND = "Fiel Imóveis e Investimentos";
 

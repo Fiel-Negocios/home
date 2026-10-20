@@ -3,7 +3,7 @@ import { type Service, services, sites } from "@/lib/sites";
 import avaliacaoImoveis from "@/public/img/avaliacao_imoveis.webp";
 import consultoriaBnb from "@/public/img/consultoria_bnb.webp";
 import vendaImoveis from "@/public/img/venda_imoveis.webp";
-import { Block } from "./block";
+import { Block } from "./page-blocks";
 import { SiteLink } from "./site-link";
 
 /** Cartões da home: um por serviço, com a imagem de cada um. */

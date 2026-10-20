@@ -1,7 +1,7 @@
 import { expect, test } from "bun:test";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Actions } from "./block";
 import { Callout } from "./callout";
+import { Actions } from "./page-blocks";
 import { Section } from "./section";
 import { ServicePage, servicePage } from "./service-page";
 

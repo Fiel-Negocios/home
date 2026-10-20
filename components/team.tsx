@@ -23,11 +23,11 @@ const photos: Record<SpecialistId, StaticImageData> = {
 /** Os especialistas de um serviço, na ordem do registro. */
 export function Team({
   service,
-  mobileFirst,
+  firstOnMobile,
 }: {
   service: Service;
   /** Quem aparece primeiro no celular, onde a equipe vira uma coluna só. */
-  mobileFirst?: SpecialistId;
+  firstOnMobile?: SpecialistId;
 }) {
   return (
     <ul className="grid grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] gap-6 max-sm:gap-y-10">
@@ -36,9 +36,9 @@ export function Team({
         return (
           <li
             key={name}
-            className={id === mobileFirst ? "max-sm:order-first" : ""}
+            className={id === firstOnMobile ? "max-sm:order-first" : ""}
           >
-            {/* no celular a foto tem tamanho limitado; a partir do sm, ocupa o card */}
+            {/* no celular a foto tem tamanho limitado; a partir do sm, ocupa a coluna toda */}
             <Image
               className="mx-auto mb-4 aspect-square h-auto w-56 bg-white object-contain object-bottom px-4 pt-4 shadow-sm sm:w-full sm:px-6 sm:pt-6"
               src={photos[id]}

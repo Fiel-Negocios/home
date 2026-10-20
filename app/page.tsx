@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Main } from "@/components/block";
+import { Main } from "@/components/page-blocks";
 import { PageHero } from "@/components/page-hero";
 import { ServiceCards } from "@/components/service-cards";
 import { SiteHeader } from "@/components/site-header";

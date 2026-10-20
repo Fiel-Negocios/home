@@ -1,6 +1,6 @@
 import type { ComponentProps, ReactNode } from "react";
 import { isExternalSite, type Site, siteHref } from "@/lib/sites";
-import { ExternalMark } from "./external-link";
+import { OffsiteMark } from "./new-tab-link";
 
 type SiteLinkProps = Omit<ComponentProps<"a">, "href" | "children"> & {
   site: Site;
@@ -13,7 +13,7 @@ type SiteLinkProps = Omit<ComponentProps<"a">, "href" | "children"> & {
  * outro sistema; os externos ganham a seta, mas abrem na mesma aba.
  */
 export function SiteLink({ site, children, ...props }: SiteLinkProps) {
-  const mark = isExternalSite(site) ? <ExternalMark /> : null;
+  const mark = isExternalSite(site) ? <OffsiteMark /> : null;
   return (
     <a href={siteHref(site)} {...props}>
       {typeof children === "function" ? (

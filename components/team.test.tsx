@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
 import { renderToStaticMarkup } from "react-dom/server";
-import { services, sites } from "@/lib/sites";
+import { servedSites, services } from "@/lib/sites";
 import { Team } from "./team";
 
 function items(html: string) {
@@ -18,22 +18,22 @@ test("a equipe de um serviço traz os especialistas dele, cada um com foto e nom
 });
 
 test("todo serviço com página neste projeto tem equipe", () => {
-  for (const service of services.filter((s) => "route" in sites[s])) {
+  for (const service of services.filter((s) => servedSites.includes(s))) {
     expect(
       items(renderToStaticMarkup(<Team service={service} />)).length,
     ).toBeGreaterThan(0);
   }
 });
 
-test("mobileFirst põe só aquele especialista na frente no celular", () => {
+test("firstOnMobile põe só aquele especialista na frente no celular", () => {
   const first = items(
-    renderToStaticMarkup(<Team service="bnb" mobileFirst="alexandre" />),
+    renderToStaticMarkup(<Team service="bnb" firstOnMobile="alexandre" />),
   ).filter((li) => li.includes("max-sm:order-first"));
   expect(first.length).toBe(1);
   expect(first[0]).toContain("Alexandre Chastinet");
 });
 
-test("sem mobileFirst, ninguém muda de ordem", () => {
+test("sem firstOnMobile, ninguém muda de ordem", () => {
   expect(renderToStaticMarkup(<Team service="avaliacao" />)).not.toContain(
     "order-first",
   );

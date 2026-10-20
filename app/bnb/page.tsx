@@ -95,7 +95,7 @@ export default function Bnb() {
       </Callout>
 
       <Section eyebrow="Especialistas" title="Quem Cuida do Seu Projeto">
-        <Team service="bnb" mobileFirst="alexandre" />
+        <Team service="bnb" firstOnMobile="alexandre" />
         <ContactButton>Chamar no WhatsApp</ContactButton>
       </Section>
 

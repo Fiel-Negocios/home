@@ -13,7 +13,7 @@ export function Faq({ items }: { items: { q: string; a: ReactNode }[] }) {
               aria-hidden
             />
           </summary>
-          <div className="flex flex-col gap-4 pb-5 leading-relaxed text-muted">
+          <div className="flex flex-col gap-6 pb-5 leading-relaxed text-muted">
             {a}
           </div>
         </details>

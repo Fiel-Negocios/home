@@ -1,11 +1,11 @@
 import { House, MapPinOff } from "lucide-react";
 import type { Metadata } from "next";
-import { Main } from "@/components/block";
-import { Button } from "@/components/button";
+import { buttonClass } from "@/components/button";
+import { Main } from "@/components/page-blocks";
 import { PageHero } from "@/components/page-hero";
 import { ServiceCards } from "@/components/service-cards";
 import { SiteHeader } from "@/components/site-header";
-import { siteHref } from "@/lib/sites";
+import { SiteLink } from "@/components/site-link";
 
 export const metadata: Metadata = { title: "Página não encontrada" };
 
@@ -28,10 +28,10 @@ export default function NotFound() {
           title="Página não encontrada."
           text="O endereço que você acessou não existe ou foi movido. Veja nossos serviços abaixo."
         >
-          <Button href={siteHref("home")}>
+          <SiteLink site="home" className={buttonClass}>
             <House className="size-5" aria-hidden />
             Voltar para o início
-          </Button>
+          </SiteLink>
         </PageHero>
         <ServiceCards />
       </Main>

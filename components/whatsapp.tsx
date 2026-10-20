@@ -2,7 +2,7 @@ import type { ComponentProps } from "react";
 import { contactMessage, whatsappLink } from "@/lib/contact";
 import type { Service } from "@/lib/sites";
 import { Button } from "./button";
-import { ExternalMark, external } from "./external-link";
+import { newTab, OffsiteMark } from "./new-tab-link";
 
 export type WhatsAppProps = ComponentProps<"a"> & {
   /** Serviço da página; entra na mensagem inicial. */
@@ -16,7 +16,7 @@ function linkProps({
   message = contactMessage(service),
   ...props
 }: WhatsAppProps): ComponentProps<"a"> {
-  return { href: whatsappLink(message), ...external, ...props };
+  return { href: whatsappLink(message), ...newTab, ...props };
 }
 
 /** Logo do WhatsApp (não existe no lucide); herda a cor do texto. */
@@ -38,12 +38,12 @@ export function WhatsAppButton({ children, ...props }: WhatsAppProps) {
     <Button {...linkProps(props)}>
       <WhatsAppIcon className="size-5" />
       {children}
-      <ExternalMark />
+      <OffsiteMark />
     </Button>
   );
 }
 
-/** Botão flutuante: só o ícone, então fica sem a seta de link externo. */
+/** Botão flutuante: só o ícone, então fica sem a seta. */
 export function WhatsAppFloat() {
   const { href, ...props } = linkProps({});
   return (

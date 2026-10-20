@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Children, Fragment, isValidElement, type ReactNode } from "react";
 import { pageMetadata, type Service, sites } from "@/lib/sites";
-import { Actions, Main } from "./block";
+import { Actions, Main } from "./page-blocks";
 import { PageHero } from "./page-hero";
 import { type Anchor, anchors, Section, type SectionProps } from "./section";
 import { SiteHeader } from "./site-header";

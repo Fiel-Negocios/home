@@ -1,7 +1,7 @@
 import type { ComponentProps, ReactNode } from "react";
-import { Block } from "./block";
 import { Eyebrow } from "./eyebrow";
 import { Intro } from "./intro";
+import { Block } from "./page-blocks";
 
 /** Seções que o menu das páginas de serviço pode listar, com seus rótulos. */
 export const anchors = {
