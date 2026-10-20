@@ -1,4 +1,5 @@
 import { BRAND, EMAIL, HOURS } from "@/lib/company";
+import { NewTabLink } from "./new-tab-link";
 import { WhatsAppButton } from "./whatsapp";
 
 const linkClass = "text-white underline underline-offset-[0.2em]";
@@ -28,14 +29,12 @@ export function Footer() {
         </p>
         <p>
           Feito por{" "}
-          <a
+          <NewTabLink
             className={linkClass}
             href="https://github.com/kauanallyson"
-            target="_blank"
-            rel="noopener"
           >
             Kauan Allyson
-          </a>
+          </NewTabLink>
         </p>
       </div>
     </footer>

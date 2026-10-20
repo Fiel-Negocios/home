@@ -35,7 +35,7 @@ const steps = [
   },
   {
     title: "Tratamento de dados e metodologia de avaliação",
-    text: "Aplicamos as metodologias previstas na NBR 14.653, com estudo comparativo de mercado e análise técnica.",
+    text: "Aplicamos a metodologia adequada ao imóvel, com estudo comparativo de mercado e análise técnica.",
   },
   {
     title: "Emissão e entrega do laudo",
@@ -53,12 +53,12 @@ export default function Avaliacao() {
           alt=""
         />
       }
-      title="Avaliação imobiliária com validade jurídica e bancária"
+      title="Avaliação Imobiliária com Validade Jurídica e Bancária"
       text="Elaboramos laudos técnicos de avaliação de imóveis conforme a NBR 14.653 para processos judiciais, financiamentos, inventários, desapropriações e garantias."
     >
       <Section
         anchor="o_que_e"
-        title="Quando um laudo de avaliação é necessário?"
+        title="Quando um Laudo de Avaliação É Necessário?"
         intro="A ausência de um laudo técnico pode gerar:"
       >
         <Checklist
@@ -72,16 +72,13 @@ export default function Avaliacao() {
         <Intro>
           Se você precisa comprovar e formalizar o valor de um imóvel, não basta
           uma estimativa de mercado. Você precisa de um laudo técnico com
-          validade jurídica e bancária. Emitimos laudos conforme a NBR 14.653
-          com responsabilidade técnica (ART).
+          validade jurídica e bancária.
         </Intro>
-        <ContactButton className="mt-8">
-          Solicitar orçamento do laudo
-        </ContactButton>
+        <ContactButton>Solicitar orçamento do laudo</ContactButton>
       </Section>
 
       <Section
-        title="Quem precisa de um laudo de avaliação?"
+        title="Quem Precisa de um Laudo de Avaliação?"
         intro="Atendemos pessoas e empresas que precisam comprovar formalmente o valor de um imóvel."
       >
         <Checklist
@@ -97,8 +94,8 @@ export default function Avaliacao() {
         />
       </Section>
 
-      <Section title="Quais tipos de imóveis avaliamos?">
-        <ul className="mt-8 mb-6 grid grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] gap-4">
+      <Section title="Quais Tipos de Imóveis Avaliamos?">
+        <ul className="grid grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] gap-4">
           {propertyTypes.map(({ type, image }) => (
             <li key={type}>
               <Image
@@ -118,10 +115,10 @@ export default function Avaliacao() {
       </Section>
 
       <Section
-        title="Como funciona o processo de avaliação?"
+        title="Como Funciona o Processo de Avaliação?"
         intro="Seguimos um processo técnico estruturado, do primeiro contato à entrega do laudo."
       >
-        <ol className="mt-8 mb-6 grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-6">
+        <ol className="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-6">
           {steps.map(({ title, text }, i) => (
             <li key={title} className="border-t-3 border-gold pt-4">
               <span className="mb-2 block text-[2rem] font-extrabold text-gold">
@@ -142,14 +139,14 @@ export default function Avaliacao() {
 
       <Callout
         eyebrow="Credibilidade técnica"
-        text="Laudos elaborados por engenheiro habilitado e associado ao IBAPE, com responsabilidade técnica (ART), conforme a NBR 14.653."
+        text="Laudos elaborados por engenheiro habilitado e associado ao IBAPE, com responsabilidade técnica (ART)."
       >
-        <ContactButton className="mt-6">Solicitar avaliação</ContactButton>
+        <ContactButton>Solicitar avaliação</ContactButton>
       </Callout>
 
       <Section
         anchor="beneficios"
-        title="Segurança jurídica e financeira nas decisões"
+        title="Segurança Jurídica e Financeira nas Decisões"
         intro="O que você ganha com o laudo?"
       >
         <Cards
@@ -159,21 +156,21 @@ export default function Avaliacao() {
             { title: "Proteção do seu patrimônio" },
           ]}
         />
-        <p className="mt-8 text-xl font-extrabold text-navy">
+        <p className="text-xl font-extrabold text-navy">
           O laudo de avaliação não é custo. É proteção patrimonial.
         </p>
       </Section>
 
       <Section
         eyebrow="Especialistas"
-        title="Fale com um especialista agora"
+        title="Fale com um Especialista Agora"
         intro="Atendemos todo o Ceará, com possibilidade de atuação em outros estados mediante análise."
       >
-        <Team members={["david", "sandy", "daniel"]} />
-        <ContactButton className="mt-8">Chamar no WhatsApp</ContactButton>
+        <Team service="avaliacao" />
+        <ContactButton>Chamar no WhatsApp</ContactButton>
       </Section>
 
-      <Section anchor="duvidas" title="Perguntas frequentes">
+      <Section anchor="duvidas" title="Perguntas Frequentes">
         <Faq
           items={[
             {

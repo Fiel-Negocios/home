@@ -15,6 +15,7 @@ test("o botão abre o WhatsApp numa nova aba com a mensagem do serviço", () => 
   expect(hrefMessage(html)).toBe(contactMessage("avaliacao"));
   expect(html).toContain('target="_blank"');
   expect(html).toContain('rel="noopener"');
+  expect(html).toContain("lucide-arrow-up-right");
 });
 
 test("uma mensagem própria substitui a do serviço", () => {
@@ -26,8 +27,8 @@ test("uma mensagem própria substitui a do serviço", () => {
   expect(hrefMessage(html)).toBe("Oi");
 });
 
-test("o botão flutuante usa a mensagem padrão", () => {
-  expect(hrefMessage(renderToStaticMarkup(<WhatsAppFloat />))).toBe(
-    contactMessage(),
-  );
+test("o botão flutuante usa a mensagem padrão e, por ser só um ícone, fica sem a seta", () => {
+  const html = renderToStaticMarkup(<WhatsAppFloat />);
+  expect(hrefMessage(html)).toBe(contactMessage());
+  expect(html).not.toContain("lucide-arrow-up-right");
 });

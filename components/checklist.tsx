@@ -1,6 +1,6 @@
 export function Checklist({ items }: { items: string[] }) {
   return (
-    <ul className="mt-6 grid gap-[0.9rem]">
+    <ul className="grid gap-[0.9rem]">
       {items.map((item) => (
         <li
           key={item}

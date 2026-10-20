@@ -1,6 +1,7 @@
 import { expect, test } from "bun:test";
 import { renderToStaticMarkup } from "react-dom/server";
 import { Callout } from "./callout";
+import { Actions } from "./page-blocks";
 import { Section } from "./section";
 import { ServicePage, servicePage } from "./service-page";
 
@@ -39,4 +40,14 @@ test("servicePage liga o serviço aos metadados e ao botão de contato", () => {
   expect(metadata.title).toBe("Avaliação de Imóveis");
   const html = renderToStaticMarkup(<ContactButton>x</ContactButton>);
   expect(decodeURIComponent(html)).toContain("Avaliação de Imóveis");
+});
+
+test("o botão de contato vem numa linha de ação, e a página não ajusta o espaçamento dele", () => {
+  const { ContactButton } = servicePage("bnb");
+  const row = renderToStaticMarkup(<Actions />).replace(/<\/div>$/, "");
+  expect(renderToStaticMarkup(<ContactButton>x</ContactButton>)).toStartWith(
+    row,
+  );
+  // @ts-expect-error o espaçamento é da seção, não da página
+  <ContactButton className="mt-8">x</ContactButton>;
 });

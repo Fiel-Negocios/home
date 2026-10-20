@@ -1,6 +1,7 @@
 import type { ComponentProps, ReactNode } from "react";
 import { Eyebrow } from "./eyebrow";
 import { Intro } from "./intro";
+import { Block } from "./page-blocks";
 
 /** Seções que o menu das páginas de serviço pode listar, com seus rótulos. */
 export const anchors = {
@@ -31,19 +32,16 @@ export function Section({
   ...props
 }: SectionProps) {
   return (
-    <section
-      id={id}
-      className={`wrap border-t border-line py-10 sm:py-16 ${className}`}
-      {...props}
-    >
+    <Block id={id} className={className} {...props}>
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
       {title && (
-        <h2 className="max-w-160 text-[clamp(1.4rem,3.5vw,2.25rem)] leading-[1.15] font-extrabold tracking-[-0.015em] text-balance">
+        <h2 className="text-[clamp(1.4rem,3.5vw,2.25rem)] leading-[1.15] font-extrabold tracking-[-0.015em]">
           {title}
         </h2>
       )}
-      {intro && <Intro>{intro}</Intro>}
-      {children}
-    </section>
+      {intro && <Intro className="mt-3">{intro}</Intro>}
+      {/* a seção espaça o que vem dentro; os filhos não trazem margem */}
+      {children && <div className="mt-8 flex flex-col gap-8">{children}</div>}
+    </Block>
   );
 }

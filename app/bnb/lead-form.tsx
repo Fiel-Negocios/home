@@ -17,7 +17,7 @@ export function LeadForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mx-auto mt-8 grid max-w-3xl grid-cols-1 gap-x-6 gap-y-4 text-left sm:grid-cols-2"
+      className="mx-auto grid w-full max-w-3xl grid-cols-1 gap-x-6 gap-y-4 text-left sm:grid-cols-2"
     >
       {bnbLeadFields.map((field) => (
         <label

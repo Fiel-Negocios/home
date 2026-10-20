@@ -4,7 +4,7 @@ export function Cards({
   items: { title: string; text?: string }[];
 }) {
   return (
-    <ul className="mt-8 grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-4">
+    <ul className="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-4">
       {items.map(({ title, text }) => (
         <li
           key={title}
