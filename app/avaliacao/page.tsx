@@ -8,16 +8,20 @@ import { Section } from "@/components/section";
 import { servicePage } from "@/components/service-page";
 import { Team } from "@/components/team";
 import avaliacaoHero from "@/public/img/avaliacao.webp";
+import comercial from "@/public/img/comercial.webp";
+import galpao from "@/public/img/galpao.webp";
+import residencial from "@/public/img/residencial.webp";
+import terreno from "@/public/img/terreno.webp";
 
 const { metadata, Page, ContactButton } = servicePage("avaliacao");
 
 export { metadata };
 
 const propertyTypes = [
-  "Galpões e imóveis corporativos",
-  "Imóveis residenciais",
-  "Imóveis comerciais",
-  "Terrenos",
+  { type: "Galpões e imóveis corporativos", image: galpao },
+  { type: "Imóveis residenciais", image: residencial },
+  { type: "Imóveis comerciais", image: comercial },
+  { type: "Terrenos", image: terreno },
 ];
 
 const steps = [
@@ -95,9 +99,13 @@ export default function Avaliacao() {
 
       <Section title="Quais tipos de imóveis avaliamos?">
         <ul className="mt-8 mb-6 grid grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] gap-4">
-          {propertyTypes.map((type) => (
+          {propertyTypes.map(({ type, image }) => (
             <li key={type}>
-              <div className="placeholder mb-3 aspect-4/3">Imagem</div>
+              <Image
+                className="mb-3 aspect-4/3 h-auto w-full rounded-(--radius) object-cover"
+                src={image}
+                alt=""
+              />
               <strong className="text-[1.1rem] font-bold">{type}</strong>
             </li>
           ))}
