@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Children, Fragment, isValidElement, type ReactNode } from "react";
 import { pageMetadata, type Service, sites } from "@/lib/sites";
+import { Main } from "./main";
 import { PageHero } from "./page-hero";
 import { type Anchor, anchors, Section, type SectionProps } from "./section";
 import { SiteHeader } from "./site-header";
@@ -22,7 +23,8 @@ type ServicePageProps = {
 
 /**
  * Tudo que uma página de serviço precisa saber do seu serviço, ligado uma vez:
- * metadados, o esqueleto e o botão de contato com a mensagem do serviço.
+ * metadados, o esqueleto e o botão de contato (centralizado) com a mensagem do
+ * serviço.
  */
 export function servicePage(service: Service): {
   metadata: Metadata;
@@ -32,7 +34,11 @@ export function servicePage(service: Service): {
   return {
     metadata: pageMetadata(service),
     Page: (props) => <ServicePage service={service} {...props} />,
-    ContactButton: (props) => <WhatsAppButton service={service} {...props} />,
+    ContactButton: ({ className = "", ...props }) => (
+      <div className={`text-center ${className}`}>
+        <WhatsAppButton service={service} {...props} />
+      </div>
+    ),
   };
 }
 
@@ -61,7 +67,7 @@ export function ServicePage({
           </nav>
         )}
       </SiteHeader>
-      <main className="flex-1">
+      <Main>
         <PageHero
           image={image}
           eyebrow={sites[service].title}
@@ -71,7 +77,7 @@ export function ServicePage({
           {action}
         </PageHero>
         {children}
-      </main>
+      </Main>
     </>
   );
 }

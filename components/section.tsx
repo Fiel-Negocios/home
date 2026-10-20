@@ -31,14 +31,10 @@ export function Section({
   ...props
 }: SectionProps) {
   return (
-    <section
-      id={id}
-      className={`wrap border-t border-line py-10 sm:py-16 ${className}`}
-      {...props}
-    >
+    <section id={id} className={`wrap py-10 sm:py-16 ${className}`} {...props}>
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
       {title && (
-        <h2 className="max-w-160 text-[clamp(1.4rem,3.5vw,2.25rem)] leading-[1.15] font-extrabold tracking-[-0.015em] text-balance">
+        <h2 className="text-[clamp(1.4rem,3.5vw,2.25rem)] leading-[1.15] font-extrabold tracking-[-0.015em]">
           {title}
         </h2>
       )}

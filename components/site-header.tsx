@@ -26,7 +26,7 @@ export function SiteHeader({
         <Image className="h-auto w-full" src={fielLogo} alt={BRAND} preload />
       </a>
       {children}
-      <WhatsAppButton service={service} className="hidden sm:inline-block">
+      <WhatsAppButton service={service} className="max-sm:hidden">
         Fale conosco
       </WhatsAppButton>
     </header>

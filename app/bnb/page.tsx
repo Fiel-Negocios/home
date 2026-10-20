@@ -25,16 +25,16 @@ export default function Bnb() {
           alt=""
         />
       }
-      title="Invista no seu negócio com o Financiamento do Banco do Nordeste"
+      title="Invista no Seu Negócio com o Financiamento do Banco do Nordeste"
       text="Faça o cadastro e nós lhe guiamos pelo processo de crédito."
       action={<Button href="#analise">Verificar enquadramento</Button>}
     >
       <Section
         anchor="o_que_e"
-        title="Consultoria experiente para facilitar sua aprovação"
+        title="Consultoria Experiente para Facilitar Sua Aprovação"
         intro="Acesse os juros menores do mercado e aproveite condições exclusivas para empresas do Nordeste. A Consultoria em Financiamento BNB é ideal para empresas e empreendedores que precisam de capital para investir, mas encontram barreiras no processo de solicitação de crédito."
       >
-        <h3 className="mt-10 text-xl font-bold">O que a consultoria inclui?</h3>
+        <h3 className="mt-10 text-xl font-bold">O Que a Consultoria Inclui?</h3>
         <Cards
           items={[
             {
@@ -57,7 +57,7 @@ export default function Bnb() {
         />
       </Section>
 
-      <Section title="Por que escolher nossa consultoria">
+      <Section title="Por Que Escolher Nossa Consultoria">
         <Checklist
           items={[
             "Clareza para seguir cada etapa com segurança e previsibilidade.",
@@ -84,7 +84,7 @@ export default function Bnb() {
       </Section>
 
       <Callout
-        className="text-center"
+        textClassName="lg:text-[min(2vw,1.5rem)] lg:whitespace-nowrap"
         text="Solicitar um financiamento sem assessoria pode se tornar um processo demorado."
       >
         <ContactButton className="mt-6">
@@ -92,11 +92,15 @@ export default function Bnb() {
         </ContactButton>
       </Callout>
 
-      <Section eyebrow="Especialistas" title="Quem cuida do seu projeto">
-        <Team members={["david", "alexandre", "daniel"]} />
+      <Section eyebrow="Especialistas" title="Quem Cuida do Seu Projeto">
+        <Team
+          members={["david", "alexandre", "daniel"]}
+          mobileFirst="alexandre"
+        />
+        <ContactButton className="mt-8">Chamar no WhatsApp</ContactButton>
       </Section>
 
-      <Section anchor="duvidas" title="Perguntas frequentes">
+      <Section anchor="duvidas" title="Perguntas Frequentes">
         <Faq
           items={[
             {
@@ -145,9 +149,9 @@ export default function Bnb() {
 
       <Section
         id="analise"
-        className="text-center [&>h2]:mx-auto [&>p]:mx-auto"
+        className="text-center"
         eyebrow="Análise gratuita"
-        title="Solicite uma análise gratuita agora mesmo"
+        title="Solicite uma Análise Gratuita Agora Mesmo"
         intro="Preencha os dados e enviaremos sua solicitação pelo WhatsApp."
       >
         <LeadForm />

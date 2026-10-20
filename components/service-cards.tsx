@@ -13,7 +13,7 @@ const images: Record<Service, StaticImageData> = {
 
 export function ServiceCards() {
   return (
-    <section className="wrap pb-10 sm:pb-16" aria-labelledby="services_title">
+    <section className="wrap py-10 sm:py-16" aria-labelledby="services_title">
       <h2
         id="services_title"
         className="mb-4 text-base font-semibold text-gold"

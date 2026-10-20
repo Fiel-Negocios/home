@@ -1,4 +1,5 @@
 import { BRAND, EMAIL, HOURS } from "@/lib/company";
+import { ExternalLink } from "./external-link";
 import { WhatsAppButton } from "./whatsapp";
 
 const linkClass = "text-white underline underline-offset-[0.2em]";
@@ -28,14 +29,12 @@ export function Footer() {
         </p>
         <p>
           Feito por{" "}
-          <a
+          <ExternalLink
             className={linkClass}
             href="https://github.com/kauanallyson"
-            target="_blank"
-            rel="noopener"
           >
             Kauan Allyson
-          </a>
+          </ExternalLink>
         </p>
       </div>
     </footer>
