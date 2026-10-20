@@ -3,6 +3,7 @@ import { type Service, services, sites } from "@/lib/sites";
 import avaliacaoImoveis from "@/public/img/avaliacao_imoveis.webp";
 import consultoriaBnb from "@/public/img/consultoria_bnb.webp";
 import vendaImoveis from "@/public/img/venda_imoveis.webp";
+import { Block } from "./block";
 import { SiteLink } from "./site-link";
 
 /** Cartões da home: um por serviço, com a imagem de cada um. */
@@ -14,7 +15,7 @@ const images: Record<Service, StaticImageData> = {
 
 export function ServiceCards() {
   return (
-    <section className="wrap py-10 sm:py-16" aria-labelledby="services_title">
+    <Block aria-labelledby="services_title">
       <h2
         id="services_title"
         className="mb-4 text-base font-semibold text-gold"
@@ -53,6 +54,6 @@ export function ServiceCards() {
           </li>
         ))}
       </ul>
-    </section>
+    </Block>
   );
 }

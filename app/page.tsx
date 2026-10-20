@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Main } from "@/components/main";
+import { Main } from "@/components/block";
 import { ServiceCards } from "@/components/service-cards";
 import { SiteHeader } from "@/components/site-header";
 import { yearsActive } from "@/lib/company";

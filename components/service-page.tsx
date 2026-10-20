@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Children, Fragment, isValidElement, type ReactNode } from "react";
 import { pageMetadata, type Service, sites } from "@/lib/sites";
-import { Main } from "./main";
+import { Actions, Main } from "./block";
 import { PageHero } from "./page-hero";
 import { type Anchor, anchors, Section, type SectionProps } from "./section";
 import { SiteHeader } from "./site-header";
@@ -29,15 +29,17 @@ type ServicePageProps = {
 export function servicePage(service: Service): {
   metadata: Metadata;
   Page: (props: Omit<ServicePageProps, "service">) => ReactNode;
-  ContactButton: (props: Omit<WhatsAppProps, "service">) => ReactNode;
+  ContactButton: (
+    props: Omit<WhatsAppProps, "service" | "className">,
+  ) => ReactNode;
 } {
   return {
     metadata: pageMetadata(service),
     Page: (props) => <ServicePage service={service} {...props} />,
-    ContactButton: ({ className = "", ...props }) => (
-      <div className={`text-center ${className}`}>
+    ContactButton: (props) => (
+      <Actions>
         <WhatsAppButton service={service} {...props} />
-      </div>
+      </Actions>
     ),
   };
 }

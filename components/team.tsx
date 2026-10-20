@@ -30,7 +30,7 @@ export function Team({
   mobileFirst?: SpecialistId;
 }) {
   return (
-    <ul className="mt-8 grid grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] gap-6 max-sm:gap-y-10">
+    <ul className="grid grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] gap-6 max-sm:gap-y-10">
       {specialistsOf(service).map((id) => {
         const { name, roles, bio }: Specialist = specialists[id];
         return (

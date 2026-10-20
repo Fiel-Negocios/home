@@ -74,9 +74,7 @@ export default function Avaliacao() {
           uma estimativa de mercado. Você precisa de um laudo técnico com
           validade jurídica e bancária.
         </Intro>
-        <ContactButton className="mt-8">
-          Solicitar orçamento do laudo
-        </ContactButton>
+        <ContactButton>Solicitar orçamento do laudo</ContactButton>
       </Section>
 
       <Section
@@ -97,7 +95,7 @@ export default function Avaliacao() {
       </Section>
 
       <Section title="Quais Tipos de Imóveis Avaliamos?">
-        <ul className="mt-8 mb-6 grid grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] gap-4">
+        <ul className="grid grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] gap-4">
           {propertyTypes.map(({ type, image }) => (
             <li key={type}>
               <Image
@@ -120,7 +118,7 @@ export default function Avaliacao() {
         title="Como Funciona o Processo de Avaliação?"
         intro="Seguimos um processo técnico estruturado, do primeiro contato à entrega do laudo."
       >
-        <ol className="mt-8 mb-6 grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-6">
+        <ol className="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-6">
           {steps.map(({ title, text }, i) => (
             <li key={title} className="border-t-3 border-gold pt-4">
               <span className="mb-2 block text-[2rem] font-extrabold text-gold">
@@ -143,7 +141,7 @@ export default function Avaliacao() {
         eyebrow="Credibilidade técnica"
         text="Laudos elaborados por engenheiro habilitado e associado ao IBAPE, com responsabilidade técnica (ART)."
       >
-        <ContactButton className="mt-6">Solicitar avaliação</ContactButton>
+        <ContactButton>Solicitar avaliação</ContactButton>
       </Callout>
 
       <Section
@@ -158,7 +156,7 @@ export default function Avaliacao() {
             { title: "Proteção do seu patrimônio" },
           ]}
         />
-        <p className="mt-8 text-xl font-extrabold text-navy">
+        <p className="text-xl font-extrabold text-navy">
           O laudo de avaliação não é custo. É proteção patrimonial.
         </p>
       </Section>
@@ -169,7 +167,7 @@ export default function Avaliacao() {
         intro="Atendemos todo o Ceará, com possibilidade de atuação em outros estados mediante análise."
       >
         <Team service="avaliacao" />
-        <ContactButton className="mt-8">Chamar no WhatsApp</ContactButton>
+        <ContactButton>Chamar no WhatsApp</ContactButton>
       </Section>
 
       <Section anchor="duvidas" title="Perguntas Frequentes">

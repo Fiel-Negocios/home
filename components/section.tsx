@@ -1,4 +1,5 @@
 import type { ComponentProps, ReactNode } from "react";
+import { Block } from "./block";
 import { Eyebrow } from "./eyebrow";
 import { Intro } from "./intro";
 
@@ -31,15 +32,16 @@ export function Section({
   ...props
 }: SectionProps) {
   return (
-    <section id={id} className={`wrap py-10 sm:py-16 ${className}`} {...props}>
+    <Block id={id} className={className} {...props}>
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
       {title && (
         <h2 className="text-[clamp(1.4rem,3.5vw,2.25rem)] leading-[1.15] font-extrabold tracking-[-0.015em]">
           {title}
         </h2>
       )}
-      {intro && <Intro>{intro}</Intro>}
-      {children}
-    </section>
+      {intro && <Intro className="mt-3">{intro}</Intro>}
+      {/* a seção espaça o que vem dentro; os filhos não trazem margem */}
+      {children && <div className="mt-8 flex flex-col gap-8">{children}</div>}
+    </Block>
   );
 }

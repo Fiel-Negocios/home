@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Actions, Block } from "./block";
 import { Eyebrow } from "./eyebrow";
 
 export function PageHero({
@@ -15,7 +16,7 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="wrap pt-4 pb-10 sm:pb-16">
+    <Block opening>
       <div className="flex items-center gap-10">
         <div className="hidden shrink-0 sm:block">{image}</div>
         <div>
@@ -29,7 +30,11 @@ export function PageHero({
         </div>
       </div>
       {/* a ação fica no centro do hero inteiro, não só da coluna do texto */}
-      {children && <div className="mt-7 text-center">{children}</div>}
-    </section>
+      {children && (
+        <div className="mt-7">
+          <Actions>{children}</Actions>
+        </div>
+      )}
+    </Block>
   );
 }

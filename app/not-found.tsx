@@ -1,7 +1,7 @@
 import { House, MapPinOff } from "lucide-react";
 import type { Metadata } from "next";
+import { Main } from "@/components/block";
 import { Button } from "@/components/button";
-import { Main } from "@/components/main";
 import { ServiceCards } from "@/components/service-cards";
 import { SiteHeader } from "@/components/site-header";
 import { siteHref } from "@/lib/sites";

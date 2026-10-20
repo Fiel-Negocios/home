@@ -34,27 +34,31 @@ export default function Bnb() {
         title="Consultoria Experiente para Facilitar Sua Aprovação"
         intro="Acesse os juros menores do mercado e aproveite condições exclusivas para empresas do Nordeste. A Consultoria em Financiamento BNB é ideal para empresas e empreendedores que precisam de capital para investir, mas encontram barreiras no processo de solicitação de crédito."
       >
-        <h3 className="mt-10 text-xl font-bold">O Que a Consultoria Inclui?</h3>
-        <Cards
-          items={[
-            {
-              title: "Análise de viabilidade do negócio",
-              text: "Avaliamos se o projeto atende aos critérios do banco e tem potencial de aprovação.",
-            },
-            {
-              title: "Preparação e revisão de toda a documentação",
-              text: "Organizamos e revisamos todos os documentos exigidos para evitar pendências.",
-            },
-            {
-              title: "Plano de negócios e plano SEAP",
-              text: "Estruturamos o projeto de forma técnica e convincente, conforme os padrões do BNB.",
-            },
-            {
-              title: "Acompanhamento até a liberação do crédito",
-              text: "Seguimos ao lado do cliente em cada fase, até a liberação do recurso.",
-            },
-          ]}
-        />
+        <div>
+          <h3 className="mb-4 text-xl font-bold">
+            O Que a Consultoria Inclui?
+          </h3>
+          <Cards
+            items={[
+              {
+                title: "Análise de viabilidade do negócio",
+                text: "Avaliamos se o projeto atende aos critérios do banco e tem potencial de aprovação.",
+              },
+              {
+                title: "Preparação e revisão de toda a documentação",
+                text: "Organizamos e revisamos todos os documentos exigidos para evitar pendências.",
+              },
+              {
+                title: "Plano de negócios e plano SEAP",
+                text: "Estruturamos o projeto de forma técnica e convincente, conforme os padrões do BNB.",
+              },
+              {
+                title: "Acompanhamento até a liberação do crédito",
+                text: "Seguimos ao lado do cliente em cada fase, até a liberação do recurso.",
+              },
+            ]}
+          />
+        </div>
       </Section>
 
       <Section title="Por Que Escolher Nossa Consultoria">
@@ -84,17 +88,15 @@ export default function Bnb() {
       </Section>
 
       <Callout
-        textClassName="lg:text-[min(2vw,1.5rem)] lg:whitespace-nowrap"
+        oneLine
         text="Solicitar um financiamento sem assessoria pode se tornar um processo demorado."
       >
-        <ContactButton className="mt-6">
-          Falar com um especialista
-        </ContactButton>
+        <ContactButton>Falar com um especialista</ContactButton>
       </Callout>
 
       <Section eyebrow="Especialistas" title="Quem Cuida do Seu Projeto">
         <Team service="bnb" mobileFirst="alexandre" />
-        <ContactButton className="mt-8">Chamar no WhatsApp</ContactButton>
+        <ContactButton>Chamar no WhatsApp</ContactButton>
       </Section>
 
       <Section anchor="duvidas" title="Perguntas Frequentes">

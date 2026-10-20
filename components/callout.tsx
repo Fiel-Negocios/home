@@ -1,33 +1,34 @@
 import type { ReactNode } from "react";
+import { Block } from "./block";
 import { Eyebrow } from "./eyebrow";
 
 export function Callout({
   eyebrow,
   text,
   className = "",
-  textClassName = "",
+  oneLine = false,
   children,
 }: {
   eyebrow?: ReactNode;
   text: ReactNode;
   className?: string;
-  /** Ajustes no texto, como mudar o tamanho para caber numa linha. */
-  textClassName?: string;
+  /** No desktop, reduz a fonte para o texto caber numa linha só. */
+  oneLine?: boolean;
   children?: ReactNode;
 }) {
   return (
-    <div className="wrap py-10 sm:py-16">
+    <Block>
       <div
         className={`rounded-(--radius) bg-navy p-7 text-white sm:p-10 ${className}`}
       >
         {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
         <p
-          className={`text-[clamp(1.25rem,3vw,1.75rem)] leading-tight font-extrabold ${textClassName}`}
+          className={`text-[clamp(1.25rem,3vw,1.75rem)] leading-tight font-extrabold ${oneLine ? "lg:text-[min(2vw,1.5rem)] lg:whitespace-nowrap" : ""}`}
         >
           {text}
         </p>
-        {children}
+        {children && <div className="mt-6">{children}</div>}
       </div>
-    </div>
+    </Block>
   );
 }
