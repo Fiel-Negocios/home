@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Main } from "@/components/block";
+import { PageHero } from "@/components/page-hero";
 import { ServiceCards } from "@/components/service-cards";
 import { SiteHeader } from "@/components/site-header";
 import { yearsActive } from "@/lib/company";
@@ -13,22 +14,18 @@ export default function Home() {
     <>
       <SiteHeader />
       <Main>
-        <section className="wrap flex items-center gap-5 pt-4 pb-10 sm:pb-16">
-          <Image
-            className="hidden h-auto w-[clamp(3.5rem,7vw,5rem)] shrink-0 sm:block"
-            src={fielSimbolo}
-            alt=""
-          />
-          <div>
-            <h1 className="text-[clamp(1.5rem,3.5vw,2.25rem)] leading-[1.15] font-extrabold tracking-[-0.02em]">
-              Sua parceria confiável no mercado de imóveis.
-            </h1>
-            <p className="mt-[0.4rem] text-base text-muted">
-              Há mais de {yearsActive()} anos atuando com imóveis comerciais e
-              corporativos.
-            </p>
-          </div>
-        </section>
+        <PageHero
+          compact
+          visual={
+            <Image
+              className="h-auto w-[clamp(3.5rem,7vw,5rem)]"
+              src={fielSimbolo}
+              alt=""
+            />
+          }
+          title="Sua parceria confiável no mercado de imóveis."
+          text={`Há mais de ${yearsActive()} anos atuando com imóveis comerciais e corporativos.`}
+        />
         <ServiceCards />
       </Main>
     </>

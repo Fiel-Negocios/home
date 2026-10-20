@@ -71,7 +71,7 @@ export function ServicePage({
       </SiteHeader>
       <Main>
         <PageHero
-          image={image}
+          visual={image}
           eyebrow={sites[service].title}
           title={title}
           text={text}
