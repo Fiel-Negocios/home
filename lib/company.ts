@@ -1,3 +1,5 @@
+import type { Service } from "./sites";
+
 /** Fatos da empresa: nome, tempo de atuação, atendimento e especialistas. */
 
 export const BRAND = "Fiel Imóveis e Investimentos";
@@ -26,7 +28,13 @@ function formatPhone(digits: string) {
   return `+${country} ${area} ${prefix}-${line}`;
 }
 
-export type Specialist = { name: string; roles: string[]; bio?: string };
+export type Specialist = {
+  name: string;
+  roles: string[];
+  bio?: string;
+  /** Serviços em que atua; a equipe de cada página de serviço sai daqui. */
+  services: Service[];
+};
 
 export const specialists = {
   david: {
@@ -35,20 +43,31 @@ export const specialists = {
       "Desenvolvedor Imobiliário · Engenheiro Civil",
       "Avaliador e Perito",
     ],
+    services: ["bnb", "avaliacao"],
   },
   alexandre: {
     name: "Alexandre Chastinet",
     roles: ["Administrador · Gerente de Negócios", "Agente de Desenvolvimento"],
     bio: "Atuei por 18 anos no Banco do Nordeste, liderando operações de crédito e gestão empresarial, com resultados reconhecidos e premiações por desempenho. Hoje, aplico essa experiência para ajudar empresas a estruturarem financiamentos seguros, viáveis e com maior chance de aprovação.",
+    services: ["bnb"],
   },
   sandy: {
     name: "Sandy Pereira",
     roles: ["Engenheira Civil · Avaliadora e Perita Judicial"],
+    services: ["avaliacao"],
   },
   daniel: {
     name: "Daniel Gomes",
     roles: ["Advogado · Tecnólogo em Construção Civil", "Corretor de imóveis"],
+    services: ["bnb", "avaliacao"],
   },
 } as const satisfies Record<string, Specialist>;
 
 export type SpecialistId = keyof typeof specialists;
+
+/** Especialistas de um serviço, na ordem do registro. */
+export function specialistsOf(service: Service): SpecialistId[] {
+  return (Object.keys(specialists) as SpecialistId[]).filter((id) =>
+    (specialists[id].services as readonly Service[]).includes(service),
+  );
+}

@@ -168,7 +168,7 @@ export default function Avaliacao() {
         title="Fale com um Especialista Agora"
         intro="Atendemos todo o Ceará, com possibilidade de atuação em outros estados mediante análise."
       >
-        <Team members={["david", "sandy", "daniel"]} />
+        <Team service="avaliacao" />
         <ContactButton className="mt-8">Chamar no WhatsApp</ContactButton>
       </Section>
 
